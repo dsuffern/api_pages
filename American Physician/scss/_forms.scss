@@ -1,0 +1,35 @@
+/*  FORMS Styles  
+----------------------------------------------- */
+  input[type="text"]{  border: 1px solid #cacaca;
+                       height: 30px;
+                       line-height: 26px;
+                       font-size: 1em;
+                       font-weight: normal;
+                       padding: 5px;
+                       color: #6a6a6a;  }
+  input[type="text"]:active { border: 1px solid #0099e0; outline: 1px solid #0099e0; box-shadow: none; }
+  input[type="submit"] {  border: none;
+                          padding: 10px 15px;
+                          font-family: Arial;
+                          font-weight: bold;
+                          background-color: #009ee0;
+                          color: #ffffff;
+                          cursor: pointer;
+                          outline: 0;
+                          text-align: center;
+                          min-width: 200px;
+                          min-height: 50px;
+                          line-height: 100%;
+                          font-size: 18px;
+                          -webkit-transition: background-color 350ms ease-in-out;
+                          -moz-transition: background-color 350ms ease-in-out;
+                          -ms-transition: background-color 350ms ease-in-out;
+                          transition: background-color 350ms ease-in-out; }
+  input[type="submit"]:hover { background-color: #0074f5; }
+  textarea {  border: thin solid #9f9f9f;
+              font-family: 'Arial';
+              max-width: 98%; 
+              width: 90%;
+              margin: 0 auto;
+              cursor: pointer;
+              min-height: 100px; }

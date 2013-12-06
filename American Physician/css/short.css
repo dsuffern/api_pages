@@ -1,0 +1,222 @@
+@font-face {font-family: 'LeagueGothicRegular';src: url('http://thepassmachine.com/css/League_Gothic-webfont.eot');src: url('http://thepassmachine.com/css/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),url('http://thepassmachine.com/css/League_Gothic-webfont.woff') format('woff'),url('http://thepassmachine.com/css/League_Gothic-webfont.ttf') format('truetype'),url('League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'gotham_boldregular';src: url('http://thepassmachine.com/css/gotham-bold-webfont.eot');src: url('http://thepassmachine.com/css/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://thepassmachine.com/css/gotham-bold-webfont.woff') format('woff'),url('http://thepassmachine.com/css/gotham-bold-webfont.ttf') format('truetype'),url('gotham-bold-webfont.svg#gotham_boldregular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaRegular';src: url('http://thepassmachine.com/css/Alegreya-Regular-webfont.eot');src: url('http://thepassmachine.com/css/Alegreya-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://thepassmachine.com/css/Alegreya-Regular-webfont.woff') format('woff'),url('http://thepassmachine.com/css/Alegreya-Regular-webfont.ttf') format('truetype'),url('Alegreya-Regular-webfont.svg#AlegreyaRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaItalic';src: url('http://thepassmachine.com/css/Alegreya-Italic-webfont.eot');src: url('http://thepassmachine.com/css/Alegreya-Italic-webfont.eot?#iefix') format('embedded-opentype'),url('http://thepassmachine.com/css/Alegreya-Italic-webfont.woff') format('woff'),url('http://thepassmachine.com/css/Alegreya-Italic-webfont.ttf') format('truetype'),url('Alegreya-Italic-webfont.svg#AlegreyaItalic') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaSCRegular';src: url('http://thepassmachine.com/css/AlegreyaSC-Regular-webfont.eot');src: url('http://thepassmachine.com/css/AlegreyaSC-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://thepassmachine.com/css/AlegreyaSC-Regular-webfont.woff') format('woff'),url('http://thepassmachine.com/css/AlegreyaSC-Regular-webfont.ttf') format('truetype'),url('AlegreyaSC-Regular-webfont.svg#AlegreyaSCRegular') format('svg');font-weight: normal;font-style: normal; }
+/**
+ *
+ * =======================================================================
+	 Base Type
+ * =======================================================================
+ *
+ */
+
+html { font: normal 106.25%/1.65 'Arial', sans-serif; /* base font size 18px with 1.65 line-height */ }
+body {
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	-o-hyphens: auto;
+	hyphens: auto;
+	word-wrap: break-word;
+	margin: 0;
+	padding: 0;
+	background-color: #eaeaea;
+	color: #606060; }
+small {	font-size: 65%; }
+
+/*
+ * =======================================================================
+	 Headings
+ * =======================================================================
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'LeagueGothicRegular';
+    font-weight: normal;
+	line-height: 1;
+	margin-top: 0;
+	text-rendering: optimizeLegibility; /*  voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+ 
+}
+
+/**
+* Extend included classes on any element -
+* choosing for adjusting type based on the scale
+* provided.
+
+* For example:
+
+ <h6 class="giga">Awesome Headline</h6>
+ <p class="tera">a story about a dude</p>
+
+* This Type Scale is as follows with px fallbacks
+* for IE 6-8 as they do not understand REM units.
+*
+* 18, 21, 24, 36, 48, 60, 72, 90, 117
+*
+*/
+
+.tera {
+	font-size: 117px;
+	font-size: 6.5rem; /* 117 / 18 = 6.5 */
+	margin-bottom: 0.25385em;
+}
+
+.giga {
+	font-size: 90px;
+	font-size: 5rem; /* 90 / 18 = 5 */
+	margin-bottom: 0.33em;
+}
+
+.mega {
+	font-size: 72px;
+	font-size: 4rem; /* 72 / 18 = 4 */
+	margin-bottom: 0.4125em;
+}
+
+h1,
+.alpha {
+	font-size: 60px;
+	font-size: 3.33333rem; /* 60 / 18 = 3.3333 */
+	margin-bottom: 0.495em;
+}
+
+h2,
+.beta {
+	font-size: 48px;
+	font-size: 2.6667rem; /* 48 / 18 = 2.6667 */
+/*	margin-bottom: 0.61875rem;*/
+margin-bottom: 0.41875em;
+}
+
+h3,
+.gamma {
+	font-size: 36px;
+	font-size: 2rem; /* 36 / 18 = 2 */
+/*	margin-bottom: 0.825em;*/
+margin-bottom: 0.725rem;
+}
+
+h4,
+.delta {
+	font-size: 24px;
+	font-size: 1.3333333333333333rem; /* 24 / 18 = 1.3333 */
+/*	margin-bottom: 1.2375em;*/
+margin-bottom: 1.1215rem;
+}
+
+h5,
+.epsilon {
+	font-size: 21px;
+	font-size: 1.16667rem; /* 21 / 18 = 1.1667 */
+	margin-bottom: 1.4142857142857141em; /* measure( base font-size(18) * base line-height(1.65) ) / current font-size(21) = margin-bottom(1.4142857142857141) */
+}
+
+h6,
+.zeta {
+	font-size: 18px;
+	font-size: 1rem; /* 18 = 18 × 1 */
+	margin-bottom: 1.65em; /* measure( base font-size(18) * base line-height(1.65) ) / current font-size(18) = margin-bottom(1.65) */
+}
+
+/* margin-bottom for headings:
+ *
+ * Explanation:
+ * Makes sure that there's always one unit of measure's worth of space between shit
+ * for headings. This is better than spacing using line-height because of the wrapping issue where we have
+ * wrapping onto 2 lines with a high line-height.
+ */
+
+
+/**
+ *
+ * =======================================================================
+	 Paragraphs and Indentation
+ * =======================================================================
+ */
+
+p { font-size:0.875rem;
+	margin: auto auto 1.5em; /* bottom margin for paragraphs */ }
+p + p { 
+	margin-top: -0.5em; /* no top margin on subsequent paragraphs */ } 
+li { font-size: 0.875rem;}
+p strong{ color:#000}
+ul{ margin:0 0 1em 0; padding:0}
+h1{color:#009ee0; text-transform:uppercase; letter-spacing:-1px}
+h2{   color:#ecbe13; text-transform:uppercase;}
+h3{  color:#ecbe13; letter-spacing:0.5px; text-transform:uppercase; }
+h4{ color:#009ee0; letter-spacing:0.25px;}
+a.top{ font-family:LeagueGothicRegular; font-size:18px; text-transform:uppercase; text-decoration:none; color:#b1b1b1; background-image:url(img/atop.png); background-repeat:no-repeat; background-position:right; float:right; padding-right:25px; position:relative; left:60px; bottom:40px} a.top:hover{ color:#000}
+.ind{padding-left:50px;}
+ 
+#wrapper{ width:960px; margin:0 auto; max-width: 100%;}
+#divider{ clear:both; color:#FFF}
+#block{ background-color:#FFF; padding:47px; box-shadow: 0 3px 5px #CCCCCC}
+#block.spacer{ margin-bottom:20px}
+#footer{ font-size:10px; color:#989898; text-transform:uppercase; margin-bottom:20px; clear:both}
+
+/* top */
+#top{ border-top: solid 5px #ecb216; padding-top:12px}
+#logo{ float:left; width:50%; color:#9f9f9f; font-family:AlegreyaRegular, Arial, Helvetica, sans-serif; font-size:13px; background-image:url(http://www.americanphysician.com/css/img/logo.jpg); background-repeat:no-repeat; background-position:0 5px; padding-left:50px;text-decoration:none}
+#logo strong{ font-family:gotham_boldregular, Arial, Helvetica, sans-serif; font-size:30px; line-height:35px; color:#000000; text-transform:uppercase; display:block; letter-spacing:-2px}
+#phone{ float:right; width:30%; font-size:10px; color:#9f9f9f; padding-top:7px; text-align:right}
+#phone strong{ text-transform:uppercase; font-size:18px; font-weight:bold; color:#ecb216; display:block; padding-bottom:3px}
+#divider.top{ border-bottom:1px solid #d3d3d3; height:1px; padding-top:15px}
+
+/* menu */
+#menu{ clear:both; border-top:1px solid #FFFFFF; padding:14px 0}
+#menu li{ display:inline; list-style:none}
+#menu li a{ color:#9f9f9f; font-weight:bold; text-transform:uppercase; text-decoration:none; padding-right:15px}
+#menu li a:hover, #menu li.register a:hover{ color:#000000}
+#menu li.register a{ color:#ecb216}
+
+/* heading */
+#heading{ background-image:url(img/headingbg.jpg); background-repeat:no-repeat; background-position:bottom; background-color:#FFF; box-shadow: 0 3px 5px #CCCCCC}
+h1.heading{ font-size:53px; line-height:53px; padding:30px 0 10px 35px; width:55%}
+ul.heading{ color:#FFF; padding:30px 340px 30px 270px; position:relative; top:10px}
+ul.heading strong{ text-transform:uppercase; line-height:18px; padding-bottom:5px; display:block}
+ul.heading li{ list-style:none; background-image:url(img/headingli.jpg); background-repeat:no-repeat; background-position:left; padding-left:30px; margin-top:1px; line-height:27px}
+#banner{ font-size:14px; padding:30px 35px; font-weight:bold; text-transform:uppercase; position:relative; top:5px}
+#banner strong{ color:#ecb216; display:block; text-transform:none; padding-bottom:7px}
+#banner span{ color:#009ee0}
+#jack{ font-size:12px; color:#FFF; float:right; position:relative; bottom:55px; right:210px} #jack span{ display:block; color:#876809}
+#divider.shadow{ background-image:url(img/shadow.png); background-repeat:no-repeat; background-position:left; height:24px}
+
+/* parts */
+#block.parts{ background-image:url(img/jackbtm.jpg); background-repeat:no-repeat; background-position:left bottom}
+#divider.yellowline{ background-image:url(img/divider.gif); background-repeat:no-repeat; background-position:280px 15px; height:45px}
+#col1{ float:left; width:260px}
+
+#col1 p{ font-family:AlegreyaItalic, Georgia, "Times New Roman", Times, serif; font-size:18px; line-height:23px; padding-right:70px; color:#009ee0}
+#col1 span{ font-family:Georgia, "Times New Roman", Times, serif; color:#000; font-size:10px; line-height:18px; display:block; text-transform:uppercase}
+#col2{ float:right; width:584px}
+#col2 h1{ margin-top:80px}
+#col3{ float:right; width:700px}
+#col3 h1{ margin-top:80px}
+#yellowbar{ clear:both; background-color:#ecb216; color:#FFF; text-align:right; font-family:LeagueGothicRegular; font-size:24px; letter-spacing:3px; text-transform:uppercase; padding:20px 47px; margin-bottom:20px; box-shadow: 0 3px 5px #CCCCCC}
+#yellowbar strong{ font-weight:normal; color:#000}
+img.signature{ position:relative; right:40px}
+
+/* live course */
+/*#block.livecourse{ background-image:url(img/livecourse_bg.jpg); background-repeat:no-repeat; background-position:bottom left; padding-left:330px}*/
+
+/* ipad */
+/*#block.ipad{ background-image:url(img/ipadbg.jpg); background-repeat:no-repeat; background-position:bottom left; padding-left:330px}*/
+
+
+/* firefox fix */
+/*#FireFox #prices td.checkbox{ width:100px}*/
+
+/* ie9 fix */
+/*
+#IE9 #prices table{ position:relative; bottom:22px}
+#IE9 #yellowbar.prices{ position:relative; bottom:22px; margin-bottom:0}
+#IE9 #prices td.checkbox{ width:100px}
+*/
+

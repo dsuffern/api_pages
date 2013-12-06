@@ -1,0 +1,33 @@
+#menu ul { list-style: none; margin: 0; padding: 0; overflow: hidden; }
+#menu li { float: left; background-color: transparent; }
+#menu a { display: block;
+          padding: 0px 15px;
+          color: #fff;
+          font-weight: bold;
+          text-decoration: none;
+          -webkit-transition: all 622ms ease;
+          -moz-transition: all 622ms ease ;
+          -ms-transition: all 622ms ease ; 
+           transition:  all 622ms ease; }
+#menu ul ul { max-height: 0;
+              position: absolute;
+              -webkit-transition: all 2s ease;
+              -moz-transition: all 2s ease ;
+              -ms-transition: all 2s ease ; 
+               transition:  all 2s ease;
+              background-color: #ecb216; }
+#menu ul ul li { float: none; background-color: #ecb216; 
+                -webkit-transition: all 2s ease;
+                -moz-transition: all 2s ease ;
+                -ms-transition: all 2s ease ; 
+                transition:  all 2s ease; }
+#menu ul ul li:hover { background-color: #ecb216; }
+#menu ul ul li a:first-of-type { padding-top: 7px; }
+#menu ul ul li a:last-of-type { padding-bottom: 7px; }
+#menu ul ul li a {  color: #fff;
+                    line-height:1.5;
+                    -webkit-transition: all 622ms ease;
+                    -moz-transition: all 622ms ease ;
+                    -ms-transition: all 622ms ease ; 
+                    transition:  all 622ms ease; }
+#menu ul li:hover ul { max-height: 999px; }

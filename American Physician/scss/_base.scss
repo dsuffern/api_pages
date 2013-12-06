@@ -1,0 +1,44 @@
+/*  Base Styles
+----------------------------------------------- */
+img, object, embed { max-width: 100%; height: auto; }
+object, embed { height: 100%; }
+textarea { height: auto; min-height: 50px; }
+select { width: 100%; }
+
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body {
+        background-image: -webkit-gradient( linear, left top, left bottom, color-stop(1, #DBDBDB), color-stop(1, #EDEDED) );
+        background-image: -o-linear-gradient(bottom, #DBDBDB 100%, #EDEDED 100%);
+        background-image: -moz-linear-gradient(bottom, #DBDBDB 100%, #EDEDED 100%);
+        background-image: -webkit-linear-gradient(bottom, #DBDBDB 100%, #EDEDED 100%);
+        background-image: -ms-linear-gradient(bottom, #DBDBDB 100%, #EDEDED 100%);
+        background-image: linear-gradient(to bottom, #DBDBDB 100%, #EDEDED 100%);
+               color:#666666;
+               line-height: 150%;
+}
+li, a { font-size:14px; line-height:24px}
+p strong{ color:#000}
+ul.ind{margin-left:20px}
+.unstyled { list-style-type: none; margin: 0; padding: 0;}
+a.top{  font:normal 18px/1 'LeagueGothicRegular';
+        text-transform:uppercase;
+        text-decoration:none;
+        color:#b1b1b1;
+        background: transparent url('img/atop.png') no-repeat right;
+        float:right;
+        padding-right:25px;
+        position:relative;
+        left:60px;
+        bottom:20px}
+  a.top:hover{ color:#000; }
+/* Blockquotes */
+blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #9a9a9a; -webkit-transition: all 400ms ease-in; -moz-transition: all 400ms ease-in;-ms-transition: all 400ms ease-in;-o-transition: all 400ms ease-in; transition: all 400ms ease-in;}
+blockquote:hover {border-left: 1px solid #ecb216;}
+blockquote cite { display: block; font-size: 0.8125em; color: #555555; } blockquote cite:before { content: "\2014 \0020"; }
+blockquote cite a, blockquote cite a:visited { color: #555555; } blockquote, blockquote p {font-size: 0.875em; line-height: 1.6; color: #6a6a6a; }
+hr {border: solid #dddddd;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25em 0 1.1875em;
+    height: 0; }

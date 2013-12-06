@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+NETWORK:
+http://*
+
+CACHE:
+# list of every file to cache
+index.html
+about.html
+career.html
+contact.html
+faculty.html
+triple-trust-terms.html
+css/apinew1.css
+css/apinew.css
+css/img/logo.jpg

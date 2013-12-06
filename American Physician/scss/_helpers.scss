@@ -1,0 +1,58 @@
+/* Colors Helpers ------------------------*/
+.bg-white { background: #fff; }
+.bg-gold  { background: #ecb216; }
+.bg-blue  { background: #0099e0; }
+.white       { color: #fff;    }
+.gold        { color: #ecb216; }
+.bright-blue { color: #0099e0; }
+.off-blue    { color: #21ade2; }
+.muted       { color: #808080; }
+.gray        { color: #333333; }
+.dark-bg {  background-color: rgba(0, 0, 0, 0.95); }
+.black       { color: #000; }
+.green       { color: #00b601; }
+.red         { color: #f04122; }
+.league-gothic { font-family: 'LeagueGothicRegular';}
+.caps {text-transform: uppercase;}
+.bold {font-weight: bold;}
+.underline { text-decoration: underline !important;}
+
+/* Alignment Helpers ----------------------*/
+.text-justify { text-align: justify; }
+.text-right   { text-align: right; }
+.text-center { text-align: center; }
+.place-right { float: right; }
+.place-left { float: left; }
+.centered { display: block; float: none; margin-left: auto !important; margin-right: auto !important;  position: relative; }
+
+/* CSS3 Helpers ----------------------*/
+.bxshadow { -webkit-box-shadow:0 3px 5px #CCCCCC;
+               -moz-box-shadow:0 3px 5px #CCCCCC;
+                    box-shadow:0 3px 5px #CCCCCC; }
+.rounded  { border-radius: 3px; }
+
+/* Margin Helpers ----------------------*/
+.space-below, .mb { margin-bottom: 20px !important; }
+.space-above, .mt { margin-top: 20px !important; }
+.vertical-space, .mv { margin-top: 20px; margin-bottom: 20px; }
+.horizontal-space, .mh { margin-left: 20px; margin-right: 20px; }
+.space-left  { margin-left: 10px; }
+.space-right { margin-right: 10px; }
+
+/* Padding Helpers ----------------------*/
+.pad-below, .px { padding-bottom: 20px !important; }
+.pad-above, .py { padding-top: 20px !important; }
+.vertical-pad, .v-pad { padding-top: 20px; padding-bottom: 20px; }
+.horizontal-pad, .h-pad { padding-left: 20px; padding-right: 20px; }
+.padding, .pad { padding: 20px; }
+.pad-left, .pleft  { padding-left: 10px; }
+.pad-right, .pright { padding-right: 10px; }
+.large-padding {padding:20px 40px;}
+.inner-pad > div[class="four columns"] {padding-top: 20px !important;}
+.no-overflow { overflow: hidden; }
+.spacer{ margin-bottom:20px}
+
+@media screen and (max-width: 760px) {
+    .hide-small { display: none !important; height: 0; position: absolute; left: 1000%; }
+}
+.hide-small { display: block; height: auto; position: static; left: 0;}

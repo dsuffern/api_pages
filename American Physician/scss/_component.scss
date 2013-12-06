@@ -1,0 +1,248 @@
+/*  Footer & Bottom - Base Styles -------------------------------------------*/
+#footer { font-size:10px;
+          color:#989898;
+          text-transform:uppercase;
+          margin-bottom:20px;
+          @include clearfix();}
+#bottom{ display:block; clear:both; color:#FFF}
+
+/*  Top & Header - Base Styles -----------------------------------------------*/
+#top{ border-top: solid 5px #ecb216;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: transparent;
+      padding-top: 0.875em;
+      margin-bottom: 12px;
+      height: 80px;
+      a { color: #9f9f9f; } }
+
+/*  Logo & Phone - Base Styles -----------------------------------------------*/
+
+// Logo Styles -----------------------------------
+#logo{ color:#7f7f7f;
+       font: normal 0.875em/1.125 'AlegreyaRegular', Arial, sans-serif;
+       padding-left: 50px;
+            &:before {  content: url('img/logo.png');
+                        display: block;
+                        @include size(38px, 46px);
+                        position: absolute;
+                        top:10px;
+                        background-color: transparent;
+                        margin-left:-50px; }
+         strong{   -webkit-text-stroke: 1px #0f0f0f;
+                    font: normal 2.125em/1.25 'gotham_boldregular', Arial, Helvetica;
+                    color:#2f2f2f;
+                    display: block;
+                    text-transform:uppercase;
+                    letter-spacing:-1px;
+                    text-rendering: optimizeLegibility;  }
+        a { display: block; padding-left: 50px; position: relative;}
+}
+@media screen and (max-width:768px) {
+  #logo > strong { font-size: 1rem; }
+  #logo:before { @include size(30px, 38px); top:0; }
+  #phone { display: none; position: absolute; left: 1000%;}
+}
+// Phone Styles ----------------------------------
+#phone{ font-size:0.625em;
+        padding-top: 5px;
+        color:#7f7f7f;
+          strong { font: normal 1.125rem/1.2 'gotham_boldregular', Arial, Helvetica;
+                   text-transform: uppercase;
+                   color:#ecb216;
+                   padding-bottom: 3px;
+                   display: block; }
+}
+
+/*  Navigation Menu - Base Styles  -----------------------------------------------*/
+#menu { @include size(100%,auto);
+        position: relative;
+        padding-bottom: 10px;
+        @include clearfix();
+        ul > li { cursor:pointer;
+                  display: inline-block;
+                  *display: inline;
+                  *zoom:1;
+                  line-height: 40px;
+                  vertical-align: middle;
+                  a { border-radius: 3px;
+                      color: #777;
+                      font: 600 1em/150% 'Arial', 'Helvetica Neue';
+                      padding: 10px 15px;
+                      @include single-transition(all 900ms ease-in-out);
+                        &:hover { background-color: #3a3a3a; color: #eee; }
+                    }
+                }
+}
+
+// Dropout Styles ------------------------------------------------------ //
+#menu ul li.drop { position: relative;
+                    &:hover{ background-color: #3a3a3a; color: white; border-radius: 3px;
+                            a {color:white;} } }
+#menu .dropdownContain {
+  width: 160px;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  margin-left: -80px; /* half of width */
+}
+#menu .dropOut {
+  width: 160px;
+  background: #ecb215;
+  position: relative;
+  margin-top: 0;
+  opacity: 0;
+  @include single-transition(all .1s ease-out);
+  @include clearfix();
+  border-radius: 1px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.15);
+
+    .triangle { @include size( 0,0 );
+                position: absolute;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid #ecb215;
+                top: -8px;
+                left: 50%;
+                margin-left: -8px; }
+
+  > ul {  @include zero(); display: block; }
+    li {  display: block;
+          text-align: center;
+          @include size( 100%, 40px);
+          @include zero();
+        > a { width: 100%;
+              color: #ffffff;
+              line-height: 30px;
+              display: block;
+              padding: 5px;
+              border-radius: 0;
+              @include single-transition(all .98s ease-out);
+                  &:hover {  background-color: #3f3f3f; color: #f0f0f0; } }
+      }
+
+}
+
+#menu > ul li:hover .dropdownContain { top: 39px; color: white;}
+#menu > ul li:hover .dropOut { opacity: 1; margin-top: 8px; }
+
+/*  Banner (UNSLIDER) - Base Styles & Modifiers ------------------------------------------------- */
+.banner {   max-width:108%;
+            min-height:100%;
+            max-height: 100%;
+            height: 400px;
+            position:relative;
+            overflow:hidden;
+            right: 0;
+            left: 7%;
+            top: -40px;
+            bottom: 0;
+          > ul { height: 100%; @include zero(); }
+           img { height:100%; }
+              li {  list-style: none;  height: 100%;  float: left; width: 100%; @include zero(); @include single-transition();}
+}
+
+@media screen and (max-width:768px) {
+  .banner {
+      padding: 10px 0;
+      top:0;
+
+  }
+}
+
+/*  Heading - Base Styles & Modifiers -----------------------------------------------*/
+h1.heading { font: normal 63px/1 'LeagueGothicRegular'; @include zero(); }
+#jack { font-size: 12px; color: #000000; float: right; position: relative; bottom: 25px; right: 340px; span {  display: block;  color: #666;  } }
+#shadow {  background-image: url('http://www.americanphysician.com/css/img/shadow.png'); background-repeat: no-repeat; background-position: left; height: 24px; color: #eaeaea; }
+
+/* jQuery UI Accordion - Nested Styles -----------------------------------------------*/
+.accordion {
+    h2 { padding:15px 45px;}
+    h3 {  background: transparent url('http://www.americanphysician.com/css/img/shadow_accordion.gif') no-repeat;
+          padding:20px 45px 17px 45px;
+          @include single-transition(all 950ms ease);
+            &:focus, &:active { outline: none; border: none; text-decoration: none; }
+            &:hover { color: #666; }
+            &:before { content:url('http://www.americanphysician.com/css/img/h3bullet.jpg'); }
+            &.ui-state-active:before { content: url('http://www.americanphysician.com/css/img/h3bullethover.jpg'); }
+       }
+    p { padding: 0 70px;
+        margin: 0;
+        a { font-weight: bold;
+            color: #0099e0;
+            @include single-transition();
+            &:hover { color: #666; }
+        }
+    }
+    div { padding-bottom: 20px; }
+}
+@media screen and (max-width:760px) {
+  .accordion > h2 { padding: 5px 10px; }
+  .accordion > h3 { padding: 15px 0 15px 0; width: 100%; margin: 0; font-size: 18px; }
+}
+
+.ipad{ background-image:url(http://www.thepassmachine.com/css/img/ipadbg.jpg); background-repeat:no-repeat; background-position:bottom left; padding-left:330px}
+
+/* YELLOW BAR STYLES -----------------------------------------------*/
+.yellow-bar { width:100%;
+              height:170px;
+              display:block;
+              background:#ecb216;
+              color:#fff;
+                strong { font-family:Arial; font-size:15px; line-height:1.3; position: relative; top: 30px; left: 10px;}
+                ul { list-style-image:url('http://thepassmachine.com/css/img/headingli.jpg'); position: relative; top: 40px; left: 40px; }
+                li { font-family:'Arial'; }
+                img[src="http://thepassmachine.com/img/ttg-transparent.png"] { transform:trate(5px, 15px); }
+                img[src="http://thepassmachine.com/img/jackbtm.png"] {   transform:translate(-15px, -20px); }
+}
+
+/* Register Buttons   -----------------------------------------------*/
+#register, .button {
+    background-color: #ecbe13;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    padding-top: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    font-family: 'gotham_boldregular', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    @include single-transition(background-color 400ms ease-out);
+      &:hover { background-color: #009ee0; }
+}
+
+/* VIDEO PLAYER ----------------------------------------------*/
+#video-player {  padding: 10px;
+                 width: 380px;
+                 display: block;
+                 margin: 0 auto;
+                 @include backface-vis(hidden);
+                 video{ max-width: 100%; max-height: 300px; height:auto; }
+}
+
+/* TP LINK ----------------------------------------------*/
+.tplnk{ color: #009ee0;
+        font: normal 20px/1.25 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        text-decoration: underline;
+        @include single-transition(all 850ms ease-in);
+          &:hover {color: #4f4f4f;}  }
+
+/* MP LINK ----------------------------------------------*/
+.mplink {
+    color: #707070;
+    display: block;
+    font-size: 14px;
+    letter-spacing: -0.03em;
+    line-height: 130%;
+    padding:10px;
+    text-decoration: none !important;
+    @include single-transition(all 700ms ease-in);
+    &:hover { background-color: #E5E8E8;  color:#000;  }
+}
