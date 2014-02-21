@@ -1,0 +1,87 @@
+@mixin mq($media) {
+    $mobile: 480px;
+    $tablet: 768px;
+    $desktop: 960px;   
+    @if $media == $mobile {
+        @media only screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+    @else if $media == $tablet {
+        @media only screen and (max-width: $tablet) {
+            @content;
+        }
+    }
+    @else if $media == $desktop {
+        @media only screen and (max-width: $tablet) {
+            @content;
+        }
+    }
+}
+
+// Legacy support for inline-block in IE7 (maybe IE6)
+@mixin inline-block {
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+}
+
+@mixin zero {
+    margin: 0;
+    padding: 0; 
+}
+ 
+// @mixin row($background: "white", $padding: "default") {
+
+//     @if $background == "white" and $padding == "default" {
+//         background-color: #ffffff;
+//         color: #666;
+//         @include scut-padding(scut-rem(18) scut-rem(36));
+//         width: 100%; 
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         max-width: scut-rem(960);
+//         *zoom: 1;
+//         @include scut-relative();
+//         @include scut-center-block;
+//         @include scut-clearfix;
+
+//     } @else {
+//         background-color: inherit;
+//         padding: auto;
+//         width: 100%; 
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         max-width: scut-rem(960);
+//         *zoom: 1;
+//         @include scut-relative();
+//         @include scut-center-block;
+//         @include scut-clearfix;
+//     }
+// }
+ 
+ 
+ 
+// List styles
+// -------------------------------------------------------
+@mixin min-width($value) {
+    @include hacked-minimum(width, $value);
+}
+
+@mixin min-height($value) {
+    @include hacked-minimum(height, $value);
+}
+
+@mixin minSizes($value1, $value2) {
+    @include min-width($value1);
+    @include min-height($value2);
+}
+
+@mixin max-size($max-x, $max-y) {
+    max-width: $max-x;
+    max-height: $max-y;
+}
+
+ 

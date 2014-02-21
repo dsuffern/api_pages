@@ -1,0 +1,182 @@
+$modules: () !default;
+@mixin exports($name) {
+  @if (index($modules, $name) == false) {
+    $modules: append($modules, $name);
+    @content;
+  }
+}
+//
+// @functions
+//
+
+@function lower-bound($range){
+  @if length($range) <= 0 {
+    @return 0;
+  }
+  @return nth($range,1);
+}
+
+@function upper-bound($range) {
+  @if length($range) < 2 {
+    @return 999999999999;
+  }
+  @return nth($range, 2);
+}
+
+$include-html-global-classes:true;
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported
+// rem-calc(10 20 30px 40);
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+// rem-calc((10, 20, 30, 40px));
+// Optionally call with a different base (eg: 8px) to calculate rem.
+// rem-calc(16px 32px 48px, 8px);
+// If you require to comma separate your list
+// rem-calc((16px, 32px, 48), 8px);
+
+@function convert-to-rem($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
+@function emCalc($values){
+  @return rem-calc($values);
+}
+
+// Deprecated: We'll drop support for this in 5.1.0, use rem-calc()
+@function em-calc($values){
+  @return rem-calc($values);
+}
+
+// Maybe you want to create rems with pixels
+// $rem-base: 0.625 !default; //Set the value corresponding to body font size. In this case, you should set as: body {font-size: 62.5%;}
+// @function remCalc($pxWidth) {
+//   @return $pxWidth / $rem-base * 1rem;
+// }
+
+@include exports("global") {
+ 
+  // Used to provide media query values for javascript components.
+  // Forward slash placed around everything to convince PhantomJS to read the value.
+  meta.foundation-mq-small {
+    font-family: "/" + unquote($small-only) + "/";
+    width: lower-bound($small-range);
+  }
+
+  meta.foundation-mq-medium {
+    font-family: "/" + unquote($medium-only) + "/";
+    width: lower-bound($medium-range);
+  }
+
+  meta.foundation-mq-large {
+    font-family: "/" + unquote($large-up) + "/";
+    width: lower-bound($large-range);
+  }
+
+  meta.foundation-mq-xlarge {
+    font-family: "/" + unquote($xlarge-up) + "/";
+    width: lower-bound($xlarge-range);
+  }
+
+  meta.foundation-mq-xxlarge {
+    font-family: "/" + unquote($xxlarge-up) + "/";
+    width: lower-bound($xxlarge-range);
+  }
+
+  @if $include-html-global-classes {
+
+    // Set box-sizing globally to handle padding and border widths
+    // *,
+    // *:before,
+    // *:after {
+    //   @include box-sizing(border-box);
+    // }
+
+    html,
+    body { font-size: $base-font-size; }
+
+    // Default body styles
+    body {
+      background: $body-bg;
+      color: $body-font-color;
+      // padding: 0;
+      // margin: 0;
+      font-family: $body-font-family;
+      font-weight: $body-font-weight;
+      font-style: $body-font-style;
+      line-height: 1; // Set to $base-line-height to take on browser default of 150%
+      // position: relative;
+      // cursor: auto;
+    }
+
+  // a:hover { cursor: pointer; }
+
+  //   // Grid Defaults to get images and embeds to work properly
+  //   img,
+  //   object,
+  //   embed { max-width: 100%; height: auto; }
+
+  //   object,
+  //   embed { height: 100%; }
+  //   img { -ms-interpolation-mode: bicubic; }
+
+  //   #map_canvas,
+  //   .map_canvas {
+  //     img,
+  //     embed,
+  //     object { max-width: none !important;
+  //     }
+  //   }
+
+    // Miscellaneous useful HTML classes
+    // .left   { float: left !important; }
+    // .right  { float: right !important; }
+    // .clearfix     { @include clearfix; }
+    // .text-left    { text-align: left !important; }
+    // .text-right   { text-align: right !important; }
+    // .text-center  { text-align: center !important; }
+    // .text-justify { text-align: justify !important; }
+    // .hide         { display: none; }
+
+    // Font smoothing
+    // Antialiased font smoothing works best for light text on a dark background.
+    // Apply to single elements instead of globally to body.
+    // Note this only applies to webkit-based desktop browsers on the Mac.
+    // .antialiased { -webkit-font-smoothing: antialiased; }
+
+    // Get rid of gap under images by making them display: inline-block; by default
+    // img {
+    //   display: inline-block;
+    //   vertical-align: middle;
+    // }
+
+    //
+    // Global resets for forms
+    //
+
+    // Make sure textarea takes on height automatically
+    // textarea { height: auto; min-height: 50px; }
+
+    // Make select elements 100% width by default
+    // select { width: 100%; }
+  }
+}

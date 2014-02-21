@@ -1,0 +1,58 @@
+ /**
+ * Pricing
+ */
+#prices {
+    .price-wrap { @include grid-row; }
+    .fourth,
+    .third { text-align: center;
+             background-color: rgba(30,40,30,0.75);
+             color: #fff;  }
+    .third { float: left;
+             position: relative;
+             width: 30%;
+             margin: 0.5% 1.25%; } 
+    #register {
+        border-radius: 3px;
+        display: block;
+        margin-top: 0.875em;
+        max-width: 73%;
+        margin-left:auto;
+        margin-right: auto; }    
+    strike {
+        font-weight: bold;
+        display: block;   
+        line-height: 1.5; }
+    strong {
+        display: block;
+        line-height: 1.5; }
+    .cta-prices {
+        @include grid-row(nest);
+        padding: 10px;
+        text-align: right; }
+    .red-fg.fwb {
+        line-height: 1.25; }
+    h2 {
+        color: $yellow;
+        text-transform: uppercase; }
+
+}
+
+
+.pricing-table {
+    li.title {
+        // background: rgba(230,165,0,0.95);
+        font-family: 'Open Sans';
+        font-weight: 700;
+    }
+    li.cta-button {
+        width: 100%;
+        padding: 5px;
+        line-height: 1.5;
+        background-color: #f0f0f0;
+        
+        a.button {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+}

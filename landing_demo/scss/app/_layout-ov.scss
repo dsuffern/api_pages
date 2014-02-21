@@ -1,0 +1,151 @@
+h2.date{ margin:20px 0 7px 0}
+
+#agenda{ font-size:14px;
+         border-bottom:1px solid #eaeaea; 
+         padding:5px;
+            div { display: inline-block; }
+            #time,
+            #title { vertical-align: middle; padding: 5px 0; }
+            #time { width: 15%; }
+            #title { font-weight: bold; width: 60%; }
+            ul {
+                @include scut-margin(5px 0 5px 20px); }
+            li { font-size: 0.785em;
+                 line-height: 1.4; }
+            &:hover {
+                div { color: #000; }
+            }
+     }
+ 
+/**
+ * faculty
+ */
+#block #col2 ul{ margin-top:-15px}
+#block #col2 li{ list-style:none; border-top:1px dotted #eaeaea; font-size:12px}
+#block #col3 ul{ margin-top:-15px}
+#block #col3 li{ list-style:none; border-top:1px dotted #eaeaea; font-size:12px}
+
+#coldoc { @include grid-column(2); }
+#col3 { @include grid-column(10); }
+
+/**
+  *   IMZ PAGE DEFAULTS
+  */
+// #topcblk {  background-color: #231f20; 
+//             padding-top: 20px; 
+//             -webkit-box-shadow: 0 3px 5px #ccc; 
+//             box-shadow: 0 3px 5px #ccc; 
+//             margin-bottom: 1em;
+//             display: block; }
+//     .imx {  font-size: 100px; 
+//             padding-left:37px; 
+//             margin-bottom: 0; 
+//             line-height: 1; 
+//             color: white;  
+//             font-family: league-gothic; }
+//     .imx2 { font-size: 30px; 
+//             padding-left: 37px; 
+//             color: #009ee0; 
+//             font-family: league-gothic; }
+//     .up {   color: white; 
+//             background-color: #231f20;
+//             width: 50%; 
+//             display: inline-block;
+//             float: left;
+//             height: 40px; 
+//             vertical-align: top;
+//             text-align: center;
+//             font-family: league-gothic; 
+//             text-transform: uppercase; 
+//             font-size: 30px; }
+//  h2,h3,h4 { color: #ecb214;
+//             text-transform: uppercase; }
+// #yellowbar { clear: both; 
+//             background-color: #009ee0; 
+//             color: #FFF; 
+//             text-align: right; 
+//             font-family: league-gothic; 
+//             font-size: 24px; 
+//             letter-spacing: 3px; 
+//             text-transform: uppercase; 
+//             padding: 20px 47px; 
+//             margin-bottom: 20px; 
+//             box-shadow: 0 3px 5px #CCCCCC; }
+//         .tbg { position: relative; 
+//                width: 100%; 
+//                min-height: 155px; 
+//                background: #ecbe13; }
+//     .foto_right { float: right; margin: 10px 5px 0 10px; }
+//     #agenda div { display: inline-block; width: 230px; padding-left: 5px; }
+//     #agenda #title { vertical-align: top; font-weight: bold; width: 40%; }
+//     #agenda #time { vertical-align: top; width: 17%; }
+
+//     #logo { width: 100%; }
+
+
+.top-bar {
+    margin-bottom: 0px !important;
+    .name > h1 {
+        font-family: $button-font-family;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        
+    }
+}
+
+
+#heading {
+    background: #2e2c26;
+    // background-color: rgba(235,235,235,0.5);
+    color: auto;
+    display: block;
+    line-height: 100%;
+    min-height: 340px;
+
+    @include scut-padding(6em 0px 3.875em);
+    @include scut-margin(0px 0px 0px);
+    @include size(100% auto);
+    @include position(relative, 0px 0px 0px 0px);
+    @include clearfix;
+
+    & header.jumbo {
+        h1 {
+            color: #ffffff;
+            font-size: 4.5em;
+            line-height: 1;
+        }
+        h2 {
+            color: #009EE0;
+        }
+    }
+
+    & + .row.default-ui.bxsh {
+        // margin-top: 340px;
+    }
+}
+
+.nav-strip { 
+    @include position(absolute, 0 0px 0 0px);
+    @include size(100% 50px);
+    display: block;
+    margin-bottom: 50px;
+    background-color: #e0e0e0;
+
+    .sub-nav {
+        display: block;
+        padding-top: 16px;
+
+        dd {
+             &.active {
+                a { color: white;
+                    &:hover { color: #f0f0f0f;}}
+                }
+
+            a {
+                color: #777;
+               
+                &:hover { color: #535353; }
+            }
+        }
+    }
+}

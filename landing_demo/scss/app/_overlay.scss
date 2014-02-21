@@ -1,0 +1,80 @@
+/* Overlay style */
+.overlay {
+	background: rgba(204,204,204,0.99);
+	@include size(100%);
+	@include position(fixed, 0px 0 0 0px);
+
+	.overlay-close {
+		border: none;
+		color: transparent;
+		background: url(../img/cross.png) no-repeat center center;
+		overflow: hidden;
+		text-indent: 200%;
+		z-index: 100;
+		@include size(80px);
+		@include position(absolute, 60px 20px 0 0);
+	}
+
+	nav {
+		height: 60%;
+		text-align: center;
+		@include position(relative, 50% 0 0 0);
+		@include transform(translateY(-50%));
+
+		@media screen and (max-height: 30.5em) {
+			 height: 70%; 
+			 font-size: 34px;
+		}
+	}
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0 auto;
+		display: inline-block;
+		height: 100%;
+		position: relative;
+		
+		li {
+			display: block;
+			height: 20%;
+			height: calc(100% / 5);
+			min-height: 54px;
+			@include backface-visibility(hidden);
+			@media screen and (max-height: 30.5em) {
+				 min-height: 34px; 
+			}
+			a {
+				font-size: 54px;
+				font-weight: 300;
+				display: block;
+				color: #fff;
+				-webkit-transition: color 0.2s;
+				transition: color 0.2s;
+				&:hover,
+				&:focus {
+					color: #F0F0F0;
+				}
+			}
+
+		}
+	}
+} 
+
+/* Effects */
+.overlay-corner {
+	opacity: 0;
+	visibility: hidden; 
+	@include transform(translateY(50px) translateX(50px));
+	@include transition(opacity 0.5s, -webkit-transform 0.5s, visibility 0s 0.5s);
+
+	&.open {
+		opacity: 1;
+		visibility: visible; 
+		@include transform(translateY(0%));
+		@include transition(opacity 0.5s, -webkit-transform 0.5s); 
+	}
+}
+
+ 
+ 

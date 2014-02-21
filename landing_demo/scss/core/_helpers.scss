@@ -1,0 +1,37 @@
+/* --------------------------------------
+ *  Color Helpers
+ */
+%blueBright,
+.b-blue {
+    color: $blueBright; }
+.bright-bloe { color: $blueBright !important; }
+.yellow { color: $yellow; }
+.ttu { text-transform: uppercase; } 
+.red-fg {color: red;}
+
+.fwb { font-weight: bold; }
+
+.underline { text-decoration: underline; }
+
+/* --------------------------------------
+ *  MARGIN / Layout Helpers
+ */
+.mt1 { margin-top: 1em; }
+.mt2 { margin-top: 2em !important; }
+.mt3 { margin-top: 3em !important; }
+
+/* --------------------------------------
+ *  PADDING / Layout Helpers
+ */
+.tp { padding-left:20px }
+.tp-small { padding-left:10px }
+.bottom-pad { padding-bottom:20px }
+.top-pad { padding-top:20px }
+.tp-1 {padding-top: 0.875em;}
+.bp-1 {padding-bottom: 1em;}
+.top-pad-sm { padding-top:10px }
+.right-pad { padding-right:20px }
+
+.p1 { padding: 1em; }
+.pt1 { padding-top: 1em; }
+.mt1 { margin-top: 1em; }

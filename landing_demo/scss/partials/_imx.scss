@@ -1,0 +1,111 @@
+$dark-bg: #231f20;
+
+.callout {
+   @include scut-absolute(100px 0 0 0);
+   min-height: scut-rem(55);
+   display: block;
+   @include scut-clearfix;
+   &.dark { background-color: $dark-bg; }
+      .callout-wrap {
+         @include scut-padding(scut-rem(10) n); 
+         @include grid-row;
+         //@include scut-center-block(90%);
+         //@include scut-relative();
+           header, 
+           article {
+             @include grid-row;
+             min-height: 30px;
+           }
+           header { 
+               @include scut-padding(scut-rem(37) 0 scut-rem(20) scut-rem(37));
+               h1 {
+                  font-size: scut-rem(68);
+               }
+            }
+            article {
+               ul { @include block-grid(2); }
+              
+            }
+      }
+      .callout-title {
+
+      }
+      .callout-content {
+
+      }
+}
+
+.begin-content {
+   @include grid-row();
+   background: #fff;
+   box-shadow: 0 3px 5px #ccc;
+}
+
+   #topcblk {
+      background-color: $dark-bg;
+      padding-top: 20px; 
+      box-shadow: 0 3px 5px #ccc;
+      display: block;
+   }
+   .imx {
+      text-align:left;
+      font-size:100px;
+      padding:37px 0 20px 37px;
+      color:white;
+      font-family: LeagueGothicRegular;
+   }
+   .imx2 {
+      text-align:left;
+      font-size:30px;
+      padding-left:37px;
+      color: #009ee0;
+      font-family: LeagueGothicRegular;
+   }
+   .up {
+      color:white;
+      width:400px;
+      font-family: LeagueGothicRegular;
+      text-transform: uppercase;
+      font-size: 30px;
+   }
+   #yellowbar {
+      clear: both;
+      background-color: #009ee0;
+      color: #FFF;
+      text-align: right;
+      font-family: LeagueGothicRegular;
+      font-size: 24px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 20px 47px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 5px #CCCCCC;
+   }
+   #DivContentFull {
+      text-align:left;
+      line-height:160%;
+      padding:0 0 0 20px;
+      font-size:14px;
+      overflow:hidden;
+      width:98%
+   }
+   #Div-3-ColumnRegister1, #Div-3-ColumnRegister2, #Div-3-ColumnRegister3, #Div-3-ColumnRegister4, #Div-3-ColumnRegister5 {
+      border-right:thin #ccc solid;
+      height:270px;
+      width:220px;
+      float:left;
+      text-align:left;
+      line-height:140%;
+      padding-left:10px
+   }
+   .tbg {
+      position:relative;
+      width:100%;
+      min-height:155px;
+      background:#ecbe13;
+   }
+   .foto_right {
+      float: right;
+      margin: 10px 5px 0 10px;
+   }
+ 
