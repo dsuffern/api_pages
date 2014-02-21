@@ -1,0 +1,237 @@
+a, a:hover {
+    text-decoration: none;
+}
+
+hr {
+    display: block;
+    margin: 10px auto 0.875em;
+    overflow: auto;
+}
+
+/*  Footer & Bottom - Base Styles -------------------------------------------*/
+#footer {
+    font-size: 10px;
+    color: #989898;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    @include scut-clearfix;
+}
+ 
+
+/*  Top & Header - Base Styles -----------------------------------------------*/
+#top {
+    border-top: solid 5px #ecb216;
+    background-color: transparent;
+    // padding-top: 0.625em;
+    margin-bottom: 12px;
+    height: 80px;
+    a {
+        color: #9f9f9f;
+    }
+}
+
+#top,
+#menu {
+    @include grid-row;
+}
+
+a.top {
+    display: block;
+    font: normal 18px / 1 $header-font-family;
+    text-transform: uppercase;
+    color: #b1b1b1; 
+    height: 50px;
+    @include position(relative, 10px 0 10px 83%); 
+    &::before {
+        background: transparent url("http://www.beattheboards.com/css/img/atop.png") no-repeat;
+        content: url("http://www.beattheboards.com/css/img/atop.png");
+        display: block;
+        @include position(absolute, 0 0 0 28px);
+        height: 50px;
+    }
+    &:after {
+      display: table;
+      content: ' ';
+      clear: both; 
+    }
+    &:hover {
+        color: #000;
+    }
+}
+
+/*  Logo & Phone - Base Styles ----------------------------------------------- */
+
+// Logo Styles -----------------------------------//
+#logo {
+    color: #7f7f7f;
+    font: 300 rem-calc(12px) / 1.125 "alegreya-sc", Arial, sans-serif;
+    padding-left: 50px;
+    &:before {
+        content: url("http://www.beattheboards.com/css/img/logo.jpg");
+        display: block;
+        @include scut-size(38px 46px);
+        @include scut-absolute(5px n n n);
+        background-color: transparent;
+        margin-left: -50px;
+    }
+    strong {
+        font: normal 2.125em/1.25 'gotham_boldregular', Arial, Helvetica;
+        color: #2f2f2f;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        text-rendering: optimizeLegibility;
+    }
+    @media screen and (max-width: 768px) {
+        strong {
+            font-size: 1rem;
+        }
+        &:before {
+            @include scut-size(30px);
+            top: 0;
+        }
+        #phone {
+            @include scut-hide-visually;
+        }
+    }
+    a {
+        display: block;
+        padding-left: 50px;
+        position: relative;
+    }
+}
+
+/* -----------------------------------------------  |
+|  -----   Phone Styles   ------------------------  |
+|  -----------------------------------------------  */
+#phone {
+    font-size: 0.625em;
+    padding-top: 5px;
+    color: #7f7f7f;
+    strong {
+        font: normal 1.125rem/1.2 'gotham_boldregular', Arial, Helvetica;
+        text-transform: uppercase;
+        color: $yellow;
+        padding-bottom: 3px;
+        display: block;
+    }
+}
+
+/*  Navigation Menu - Base Styles  -----------------------------------------------*/
+#menu {
+    @include size(100% 50px);
+    @include scut-relative(0 n n n);
+    @include scut-padding(0 0 5px 0);
+    @include scut-clearfix;
+    border-top: 1px solid #dedede;
+    ul > li {
+        cursor: pointer;
+        @include inline-block;
+        line-height: 40px;
+        vertical-align: middle;
+        a {
+            border-radius: 3px;
+            color: #777;
+            font: 700 1em / 150% $body-font-family;
+            @include scut-padding(10px 1.1215em n n);
+            @include transition(all 900ms ease-in-out);
+            &:hover {
+                /*background-color: #3a3a3a;*/
+                color: #2e2e2e;
+            }
+        }
+    }
+}
+
+#menu ul li:first-of-type,
+#menu ul a:first-of-type {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* jQuery UI Accordion - Nested Styles -----------------------------------------------*/
+.accordion {
+    h2 {
+        @include scut-padding(15px 45px);
+    }
+    h3 {
+        background: transparent url("http://www.americanphysician.com/css/img/shadow_accordion.gif") no-repeat;
+        @include scut-padding(20px 45px 17px 45px);
+        @include transition(all 950ms ease);
+        &:focus, &:active {
+            outline: none;
+            border: none;
+            text-decoration: none;
+        }
+        &:hover {
+            color: #666;
+        }
+        &:before {
+            content: url("http://www.americanphysician.com/css/img/h3bullet.jpg");
+        }
+        &.ui-state-active:before {
+            content: url("http://www.americanphysician.com/css/img/h3bullethover.jpg");
+        }
+    }
+    @media screen and (max-width: 40em) {
+        h2 {
+            @include scut-padding(5px 10px);
+        }
+        h3 {
+            @include scut-padding(15px 0);
+            width: 100%;
+            margin: 0;
+            font-size: 18px;
+        }
+    }
+    p {
+        @include scut-padding(0 70px);
+        margin: 0;
+        a {
+            font-weight: bold;
+            color: #0099e0;
+            @include transition;
+            &:hover {
+                color: #666;
+            }
+        }
+    }
+    div {
+        padding-bottom: 20px;
+    }
+}
+
+.ipad {
+    background-image: url(http://www.thepassmachine.com/css/img/ipadbg.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    padding-left: 330px;
+}
+
+/* TP LINK ----------------------------------------------*/
+.tplnk {
+    color: #009ee0;
+    font: normal 20px/1.25 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    text-decoration: underline;
+    @include transition(all 850ms ease-in);
+    &:hover {
+        color: #4f4f4f;
+    }
+}
+
+#yellowbar.ipad {
+    background-image: none;
+    background: #ECB216;
+    color: #fff;
+    font-size: 24px;
+    font-family: $header-font-family;
+    text-align: right;
+    padding: 20px 47px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    strong {
+        color: #000;
+    }
+}

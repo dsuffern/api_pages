@@ -1,0 +1,390 @@
+@import 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css';
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700|Open+Sans:400,700,300,800|Roboto:400,100,300,500,700,900|Oswald:400,300,700);
+/*
+* Scut, a collection of Sass utilities to ease and improve our implementations of common style-code patterns.
+* v0.8.0
+* Docs at http://davidtheclark.github.io/scut
+*/
+/* ==============================================================  Custom for BTB =============================================================== */
+/** MEDIA QUERY VARIABLES */
+/** MEDIA QUERY VARIABLES */
+@font-face { font-family: "gotham_boldregular"; font-weight: normal; font-style: normal; src: url("fonts/gotham-bold-webfont.eot"); src: url("fonts/gotham-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/gotham-bold-webfont.woff") format("woff"), url("fonts/gotham-bold-webfont.ttf") format("truetype"), url("fonts/gotham-bold-webfont.svg#gotham_boldregular") format("svg"); }
+p.lead { font-size: 1.09375rem; line-height: 1.6; }
+
+.subheader { line-height: 1.4; color: #7ad5ff; font-weight: 300; margin-top: 0.2rem; margin-bottom: 0.5rem; }
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; padding: 0; direction: ltr; }
+
+/* Default Link Styles */
+a { color: #0099e0; text-decoration: none; line-height: inherit; }
+a:hover, a:focus { color: #0088c7; }
+a img { border: none; }
+
+/* Default paragraph styles */
+p { font-family: Open Sans, PT Sans, "Arial", "Helvetica Neue", "Helvetica"; font-weight: normal; font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; text-rendering: optimizeLegibility; }
+p aside { font-size: 0.875rem; line-height: 1.35; font-style: italic; }
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 { font-family: league-gothic, sans-serif, Oswald, "Helvetica"; font-weight: normal; font-style: normal; color: auto; text-rendering: optimizeLegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.4; letter-spacing: -1px; }
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #7ad5ff; line-height: 0; }
+
+h1 { font-size: rem-calc(60px)-rem-calc(10); }
+
+h2 { font-size: rem-calc(48px)-rem-calc(10); }
+
+h3 { font-size: rem-calc(37px)-rem-calc(5); }
+
+h4 { font-size: rem-calc(23px)-rem-calc(5); }
+
+h5 { font-size: rem-calc(18px); }
+
+h6 { font-size: 1rem; }
+
+hr { border: solid #dddddd; border-width: 1px 0 0; clear: both; margin: 1.25rem 0 1.1875rem; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+/* Lists */
+ul, ol, dl { font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; list-style-position: outside; font-family: Open Sans, PT Sans, "Arial", "Helvetica Neue", "Helvetica"; }
+
+ul { margin-left: 1.1rem; }
+ul.no-bullet { margin-left: 0; }
+ul.no-bullet li ul, ul.no-bullet li ol { margin-left: 1.25rem; margin-bottom: 0; list-style: none; }
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.25rem; margin-bottom: 0; font-size: 1rem; /* Override nested font-size change */ }
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+ul.square { list-style-type: square; margin-left: 1.1rem; }
+ul.circle { list-style-type: circle; margin-left: 1.1rem; }
+ul.disc { list-style-type: disc; margin-left: 1.1rem; }
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol { margin-left: 1.4rem; }
+ol li ul, ol li ol { margin-left: 1.25rem; margin-bottom: 0; }
+
+/* Definition Lists */
+dl dt { margin-bottom: 0.3rem; font-weight: bold; }
+dl dd { margin-bottom: 0.75rem; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1.25rem; padding: 0.5625rem 1.25rem 0rem 1.1875rem; border-left: 1px solid #dddddd; }
+blockquote cite { display: block; font-size: 0.8125rem; color: #454545; }
+blockquote cite:before { content: "\2014 \0020"; }
+blockquote cite a, blockquote cite a:visited { color: #454545; }
+
+blockquote, blockquote p { line-height: 1.6; color: #5f5f5f; }
+
+@media only screen and (min-width: lower-bound(40.063em, 64em)) { h1, h2, h3, h4, h5, h6 { line-height: 1.4; }
+  h1 { font-size: rem-calc(60px); }
+  h2 { font-size: rem-calc(48px); }
+  h3 { font-size: rem-calc(37px); }
+  h4 { font-size: rem-calc(23px); } }
+/* -------------------------------------- Color Helpers */
+.b-blue { color: #0099e0; }
+
+.bright-bloe { color: #0099e0 !important; }
+
+.yellow { color: #ecb215; }
+
+.ttu { text-transform: uppercase; }
+
+.red-fg { color: red; }
+
+.fwb { font-weight: bold; }
+
+.underline { text-decoration: underline; }
+
+/* -------------------------------------- MARGIN / Layout Helpers */
+.mt1 { margin-top: 1em; }
+
+.mt2 { margin-top: 2em !important; }
+
+.mt3 { margin-top: 3em !important; }
+
+/* -------------------------------------- PADDING / Layout Helpers */
+.tp { padding-left: 20px; }
+
+.tp-small { padding-left: 10px; }
+
+.bottom-pad { padding-bottom: 20px; }
+
+.top-pad { padding-top: 20px; }
+
+.tp-1 { padding-top: 0.875em; }
+
+.bp-1 { padding-bottom: 1em; }
+
+.top-pad-sm { padding-top: 10px; }
+
+.right-pad { padding-right: 20px; }
+
+.p1 { padding: 1em; }
+
+.pt1 { padding-top: 1em; }
+
+.mt1 { margin-top: 1em; }
+
+meta.foundation-mq-small { font-family: "/only screen and (max-width: 40em)/"; width: 0em; }
+
+meta.foundation-mq-medium { font-family: "/only screen and (min-width:lower-bound(40.063em, 64em)) and (max-width:upper-bound(40.063em, 64em))/"; width: 40.063em; }
+
+meta.foundation-mq-large { font-family: "/only screen and (min-width:lower-bound(64.063em, 90em))/"; width: 64.063em; }
+
+meta.foundation-mq-xlarge { font-family: "/only screen and (min-width:lower-bound(90.063em, 120em))/"; width: 90.063em; }
+
+meta.foundation-mq-xxlarge { font-family: "/only screen and (min-width:lower-bound(120.063em))/"; width: 120.063em; }
+
+html, body { font-size: 100%; }
+
+body { background: #eaeaea; color: #5f5f5f; font-family: Open Sans, PT Sans, "Arial", "Helvetica Neue", "Helvetica"; font-weight: normal; font-style: normal; line-height: 1; }
+
+.row { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; }
+.row:before, .row:after { content: " "; display: table; }
+.row:after { clear: both; }
+.row.default-ui { background-color: #fff; padding: 0 25px; border-radius: 3px; }
+.row.h-pad { padding: 0px 47px !important; }
+.row.bxsh { -webkit-box-shadow: 0 3px 5px #ccc; box-shadow: 0 3px 5px #ccc; }
+.row .row { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; }
+.row .row:before, .row .row:after { content: " "; display: table; }
+.row .row:after { clear: both; }
+
+.large-4.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 33.33333%; float: left; }
+
+.large-5.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 41.66667%; float: left; }
+
+.large-3.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 25%; float: left; }
+
+.large-8.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 66.66667%; float: left; }
+
+.large-9.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 75%; float: left; }
+
+.large-10.large-centered.columns { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 83.33333%; margin-left: auto; margin-right: auto; float: none !important; float: left; }
+
+/* --------------------------------------- Accordion Buttons & Content */
+.accordionButton { cursor: pointer; line-height: 1.25; }
+
+.accordionContent { padding-top: 5px; padding-right: 0; padding-bottom: 10px; padding-left: 20px; cursor: pointer; line-height: 1.25; }
+.accordionContent li { font-size: 16px; }
+@media only screen and (max-width: 480px) { .accordionContent li { font-size: 14px; } }
+
+/* -------------------------------------- Blockquote & Author Styles */
+.quote { padding-right: 70px; font: normal 18px/23px "AlegreyaItalic"; color: #009ee0; }
+
+.author { display: block; text-transform: uppercase; font-size: 10px; }
+
+#topc { background-color: #FFF; padding: 20px 0 10px 0; -webkit-box-shadow: 0 3px 5px #ccc; box-shadow: 0 3px 5px #ccc; display: block; }
+#topc hgroup { display: block; text-align: center; }
+
+/* -------------------------------------- Yellow Bar Widget Full Width, Vertically Centered Images */
+.yellow-bar { background-color: #ecb215; color: #fff; padding-top: 1em; padding-bottom: 1em; margin-bottom: 1em; width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; max-height: 225px; }
+.yellow-bar:before, .yellow-bar:after { content: " "; display: table; }
+.yellow-bar:after { clear: both; }
+.yellow-bar figure:first-of-type { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 16.66667%; float: left; }
+.yellow-bar figure:first-of-type img { position: absolute; top: -10px; right: 0px; bottom: 0px; left: 0px; }
+.yellow-bar > article { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 50%; float: left; padding-top: 10px; }
+.yellow-bar > article strong { font: normal 17px/150% league-gothic, sans-serif, Oswald, "Helvetica"; letter-spacing: 3px; font-weight: normal; display: block; text-transform: uppercase; margin-left: 0; padding-top: 10px; }
+.yellow-bar > article ul { display: block; padding-top: 10px; padding-left: 0; list-style-image: url("http://thepassmachine.com/css/img/headingli.jpg"); }
+.yellow-bar > article li { font: 500 14px/1.5 Open Sans, PT Sans, "Arial", "Helvetica Neue", "Helvetica"; }
+.yellow-bar figure:last-of-type { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 33.33333%; margin-left: auto; margin-right: auto; float: none !important; float: left; margin-right: 0; }
+.yellow-bar figure:last-of-type img { height: 247px; position: absolute; top: -106px; right: 10px; bottom: 100%; }
+
+/* -------------------------------------- Jumbo Header & Child Elements */
+header.jumbo { max-width: 95%; display: block; margin: 0 auto; padding-top: 1.00em; }
+header.jumbo h1 { font-size: 50px; margin-bottom: 0; color: #0099e0; text-transform: uppercase; }
+header.jumbo h2 { font-size: 38px; letter-spacing: 0; color: #ecb215; text-transform: uppercase; }
+
+/* -------------------------------------- Featured Images for Callout Banner  50% Width, Content Centered and Top V-align */
+.feat-images { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; }
+.feat-images:before, .feat-images:after { content: " "; display: table; }
+.feat-images:after { clear: both; }
+.feat-images figure { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 50%; float: left; }
+.feat-images figure img { width: 100%; height: 312px; padding: 0; margin: 0; display: block; }
+.feat-images figcaption { position: absolute; top: 0; right: 0; left: 0; display: block; width: 96%; max-width: 100%; margin-left: 1.825%; margin-top: -0.75%; height: 60px; }
+.feat-images figcaption header { background-color: rgba(200, 200, 200, 0.58); display: block; text-align: center; }
+.feat-images h3 { background-color: rgba(255, 255, 255, 0.75); color: #09e; font-size: 32px; line-height: 100%; text-transform: uppercase; }
+.feat-images h4 { font-size: 22px; color: #000; }
+
+/* -------------------------------------- FULL WIDTH STRIPS Fill X-axis, Use Modifiers  */
+.strip { display: block; position: absolute; right: 0px; left: 0px; width: 100%; overflow: hidden; *zoom: 1; }
+.strip:before, .strip:after { content: " "; display: table; }
+.strip:after { clear: both; }
+.strip.bg-shade { background: url(http://subtlepatterns.com/patterns/stardust.png); }
+.strip.vertical-space { padding: 4em 0px 4em; }
+
+a, a:hover { text-decoration: none; }
+
+hr { display: block; margin: 10px auto 0.875em; overflow: auto; }
+
+/*  Footer & Bottom - Base Styles -------------------------------------------*/
+#footer { font-size: 10px; color: #989898; text-transform: uppercase; margin-bottom: 20px; }
+#footer:after { content: ""; display: table; clear: both; }
+
+/*  Top & Header - Base Styles -----------------------------------------------*/
+#top { border-top: solid 5px #ecb216; background-color: transparent; margin-bottom: 12px; height: 80px; }
+#top a { color: #9f9f9f; }
+
+#top, #menu { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; }
+#top:before, #top:after, #menu:before, #menu:after { content: " "; display: table; }
+#top:after, #menu:after { clear: both; }
+
+a.top { display: block; font: normal 18px/1 league-gothic, sans-serif, Oswald, "Helvetica"; text-transform: uppercase; color: #b1b1b1; height: 50px; position: relative; top: 10px; bottom: 10px; left: 83%; }
+a.top::before { background: transparent url("http://www.beattheboards.com/css/img/atop.png") no-repeat; content: url("http://www.beattheboards.com/css/img/atop.png"); display: block; position: absolute; left: 28px; height: 50px; }
+a.top:after { display: table; content: ' '; clear: both; }
+a.top:hover { color: #000; }
+
+/*  Logo & Phone - Base Styles ----------------------------------------------- */
+#logo { color: #7f7f7f; font: 300 0.7619rem "alegreya-sc", Arial, sans-serif; padding-left: 50px; }
+#logo:before { content: url("http://www.beattheboards.com/css/img/logo.jpg"); display: block; width: 38px; height: 46px; position: absolute; top: 5px; background-color: transparent; margin-left: -50px; }
+#logo strong { font: normal 2.125em/1.25 'gotham_boldregular', Arial, Helvetica; color: #2f2f2f; display: block; text-transform: uppercase; letter-spacing: -1px; text-rendering: optimizeLegibility; }
+@media screen and (max-width: 768px) { #logo strong { font-size: 1rem; }
+  #logo:before { width: 30px; height: 30px; top: 0; }
+  #logo #phone { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; } }
+#logo a { display: block; padding-left: 50px; position: relative; }
+
+/* -----------------------------------------------  |
+|  -----   Phone Styles   ------------------------  |
+|  -----------------------------------------------  */
+#phone { font-size: 0.625em; padding-top: 5px; color: #7f7f7f; }
+#phone strong { font: normal 1.125rem/1.2 'gotham_boldregular', Arial, Helvetica; text-transform: uppercase; color: #ecb215; padding-bottom: 3px; display: block; }
+
+/*  Navigation Menu - Base Styles  -----------------------------------------------*/
+#menu { width: 100%; height: 50px; position: relative; top: 0; padding-top: 0; padding-right: 0; padding-bottom: 5px; padding-left: 0; border-top: 1px solid #dedede; }
+#menu:after { content: ""; display: table; clear: both; }
+#menu ul > li { cursor: pointer; display: inline-block; vertical-align: baseline; zoom: 1; *display: inline; *vertical-align: auto; line-height: 40px; vertical-align: middle; }
+#menu ul > li a { border-radius: 3px; color: #777; font: 700 1em/150% Open Sans, PT Sans, "Arial", "Helvetica Neue", "Helvetica"; padding-top: 10px; padding-right: 1.1215em; -webkit-transition: all 900ms ease-in-out; -moz-transition: all 900ms ease-in-out; transition: all 900ms ease-in-out; }
+#menu ul > li a:hover { /*background-color: #3a3a3a;*/ color: #2e2e2e; }
+
+#menu ul li:first-of-type, #menu ul a:first-of-type { margin-left: 0; padding-left: 0; }
+
+/* jQuery UI Accordion - Nested Styles -----------------------------------------------*/
+.accordion h2 { padding-top: 15px; padding-bottom: 15px; padding-left: 45px; padding-right: 45px; }
+.accordion h3 { background: transparent url("http://www.americanphysician.com/css/img/shadow_accordion.gif") no-repeat; padding-top: 20px; padding-right: 45px; padding-bottom: 17px; padding-left: 45px; -webkit-transition: all 950ms ease; -moz-transition: all 950ms ease; transition: all 950ms ease; }
+.accordion h3:focus, .accordion h3:active { outline: none; border: none; text-decoration: none; }
+.accordion h3:hover { color: #666; }
+.accordion h3:before { content: url("http://www.americanphysician.com/css/img/h3bullet.jpg"); }
+.accordion h3.ui-state-active:before { content: url("http://www.americanphysician.com/css/img/h3bullethover.jpg"); }
+@media screen and (max-width: 40em) { .accordion h2 { padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; }
+  .accordion h3 { padding-top: 15px; padding-bottom: 15px; padding-left: 0; padding-right: 0; width: 100%; margin: 0; font-size: 18px; } }
+.accordion p { padding-top: 0; padding-bottom: 0; padding-left: 70px; padding-right: 70px; margin: 0; }
+.accordion p a { font-weight: bold; color: #0099e0; -webkit-transition: all 0.15s ease-out 0; -moz-transition: all 0.15s ease-out 0; transition: all 0.15s ease-out 0; }
+.accordion p a:hover { color: #666; }
+.accordion div { padding-bottom: 20px; }
+
+.ipad { background-image: url(http://www.thepassmachine.com/css/img/ipadbg.jpg); background-repeat: no-repeat; background-position: bottom left; padding-left: 330px; }
+
+/* TP LINK ----------------------------------------------*/
+.tplnk { color: #009ee0; font: normal 20px/1.25 'LeagueGothicRegular', Arial, Helvetica, sans-serif; text-transform: uppercase; text-decoration: underline; -webkit-transition: all 850ms ease-in; -moz-transition: all 850ms ease-in; transition: all 850ms ease-in; }
+.tplnk:hover { color: #4f4f4f; }
+
+#yellowbar.ipad { background-image: none; background: #ECB216; color: #fff; font-size: 24px; font-family: league-gothic, sans-serif, Oswald, "Helvetica"; text-align: right; padding: 20px 47px; text-transform: uppercase; letter-spacing: 1.5px; }
+#yellowbar.ipad strong { color: #000; }
+
+.button, #submit_btn, #register { background: rgba(35, 137, 206, 0.95); color: white; -webkit-border-radius: 4px; border-radius: 4px; border: none; font-style: normal; font-weight: bold; font-family: "gotham_boldregular", Arial, Helvetica, sans-serif; font-size: 16px; margin: 10px auto; overflow: hidden; padding: 15px 20px; text-align: center; text-decoration: none; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0, 58, 1) 10ms; -moz-transition: all 200ms cubic-bezier(0.42, 0, 0, 58, 1) 10ms; transition: all 200ms cubic-bezier(0.42, 0, 0, 58, 1) 10ms; }
+.button:hover, #submit_btn:hover, #register:hover { -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.3) inset; box-shadow: -1px 0px 1px 0 rgba(0, 0, 0, 0.3) inset; background: #0a84d6; border: none; border-radius: 4px; text-decoration: none; }
+
+/* Register Buttons   -----------------------------------------------*/
+#register { text-transform: uppercase; -webkit-appearance: none; }
+
+/*  ----------------------- Webform-specific styles -----------------------   */
+#colform { margin: 5px 10px 0px 20px; float: right; }
+
+.error, #contact_finish { display: none; }
+
+.signup { color: white; margin: 0 auto 0 auto; overflow: hidden; padding: 10px; width: 280px; background: #6699CC; }
+.signup.green { background-color: #71bf44; }
+.signup.blue { background-color: #6699cc; }
+.signup .signup-title { font-family: league-gothic, sans-serif; margin: 0 auto 0 auto; text-align: center; width: 89.28571%; }
+.signup .signup-title h4 { font: normal 36px/110% league-gothic, sans-serif, Arial, Helvetica, sans-serif; margin: 0; text-transform: uppercase; }
+.signup #contact_form { position: relative; display: block; margin: 0; width: 100%; }
+.signup .success-message { position: relative; padding: 10px; height: 200px; background-color: #0063A8; color: #fefefe; text-align: center; }
+.signup .success-message p { font-family: 'AlegreyaRegular' !important; min-width: 200px; max-width: 240px; position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; width: 60%; height: 60%; }
+.signup h5, .signup h6 { margin: 2px; color: white; }
+.signup button, .signup input, .signup label { width: 250px; display: block; margin: 5px auto; }
+.signup button, .signup #submit_btn { display: block; margin-top: 1em; margin-bottom: 1em; }
+.signup label { color: white !important; font: 400 1em/1.75 source-sans-pro, sans-serif; }
+.signup form label.error { color: red !important; }
+.signup input { padding: 3px 5px; font-size: 14px; line-height: 1.34; }
+
+/**
+* Pricing
+*/
+#prices .price-wrap { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; max-width: 70rem; *zoom: 1; }
+#prices .price-wrap:before, #prices .price-wrap:after { content: " "; display: table; }
+#prices .price-wrap:after { clear: both; }
+#prices .fourth, #prices .third { text-align: center; background-color: rgba(30, 40, 30, 0.75); color: #fff; }
+#prices .third { float: left; position: relative; width: 30%; margin: 0.5% 1.25%; }
+#prices #register { border-radius: 3px; display: block; margin-top: 0.875em; max-width: 73%; margin-left: auto; margin-right: auto; }
+#prices strike { font-weight: bold; display: block; line-height: 1.5; }
+#prices strong { display: block; line-height: 1.5; }
+#prices .cta-prices { width: auto; margin-left: -0.71429rem; margin-right: -0.71429rem; margin-top: 0; margin-bottom: 0; max-width: none; *zoom: 1; padding: 10px; text-align: right; }
+#prices .cta-prices:before, #prices .cta-prices:after { content: " "; display: table; }
+#prices .cta-prices:after { clear: both; }
+#prices .red-fg.fwb { line-height: 1.25; }
+#prices h2 { color: #ecb215; text-transform: uppercase; }
+
+.pricing-table li.title { font-family: 'Open Sans'; font-weight: 700; }
+.pricing-table li.cta-button { width: 100%; padding: 5px; line-height: 1.5; background-color: #f0f0f0; }
+.pricing-table li.cta-button a.button { width: 80%; margin: 0 auto; }
+
+/* Overlay style */
+.overlay { background: rgba(204, 204, 204, 0.99); width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; }
+.overlay .overlay-close { border: none; color: transparent; background: url(../img/cross.png) no-repeat center center; overflow: hidden; text-indent: 200%; z-index: 100; width: 80px; height: 80px; position: absolute; top: 60px; right: 20px; }
+.overlay nav { height: 60%; text-align: center; position: relative; top: 50%; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%); }
+@media screen and (max-height: 30.5em) { .overlay nav { height: 70%; font-size: 34px; } }
+.overlay ul { list-style-type: none; padding: 0; margin: 0 auto; display: inline-block; height: 100%; position: relative; }
+.overlay ul li { display: block; height: 20%; height: calc(100% / 5); min-height: 54px; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+@media screen and (max-height: 30.5em) { .overlay ul li { min-height: 34px; } }
+.overlay ul li a { font-size: 54px; font-weight: 300; display: block; color: #fff; -webkit-transition: color 0.2s; transition: color 0.2s; }
+.overlay ul li a:hover, .overlay ul li a:focus { color: #F0F0F0; }
+
+/* Effects */
+.overlay-corner { opacity: 0; visibility: hidden; -webkit-transform: translateY(50px) translateX(50px); -moz-transform: translateY(50px) translateX(50px); -ms-transform: translateY(50px) translateX(50px); -o-transform: translateY(50px) translateX(50px); transform: translateY(50px) translateX(50px); -webkit-transition: opacity 0.5s, -webkit-transform 0.5s, visibility 0s 0.5s; -moz-transition: opacity 0.5s, -webkit-transform 0.5s, visibility 0s 0.5s; transition: opacity 0.5s, -webkit-transform 0.5s, visibility 0s 0.5s; }
+.overlay-corner.open { opacity: 1; visibility: visible; -webkit-transform: translateY(0%); -moz-transform: translateY(0%); -ms-transform: translateY(0%); -o-transform: translateY(0%); transform: translateY(0%); -webkit-transition: opacity 0.5s, -webkit-transform 0.5s; -moz-transition: opacity 0.5s, -webkit-transform 0.5s; transition: opacity 0.5s, -webkit-transform 0.5s; }
+
+h2.date { margin: 20px 0 7px 0; }
+
+#agenda { font-size: 14px; border-bottom: 1px solid #eaeaea; padding: 5px; }
+#agenda div { display: inline-block; }
+#agenda #time, #agenda #title { vertical-align: middle; padding: 5px 0; }
+#agenda #time { width: 15%; }
+#agenda #title { font-weight: bold; width: 60%; }
+#agenda ul { margin-top: 5px; margin-right: 0; margin-bottom: 5px; margin-left: 20px; }
+#agenda li { font-size: 0.785em; line-height: 1.4; }
+#agenda:hover div { color: #000; }
+
+/** faculty */
+#block #col2 ul { margin-top: -15px; }
+
+#block #col2 li { list-style: none; border-top: 1px dotted #eaeaea; font-size: 12px; }
+
+#block #col3 ul { margin-top: -15px; }
+
+#block #col3 li { list-style: none; border-top: 1px dotted #eaeaea; font-size: 12px; }
+
+#coldoc { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 16.66667%; float: left; }
+
+#col3 { position: relative; padding-left: 0.71429rem; padding-right: 0.71429rem; width: 83.33333%; float: left; }
+
+/** IMZ PAGE DEFAULTS */
+.top-bar { margin-bottom: 0px !important; }
+.top-bar .name > h1 { font-family: "gotham_boldregular", Arial, Helvetica, sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+
+#heading { background: #2e2c26; color: auto; display: block; line-height: 100%; min-height: 340px; padding-top: 6em; padding-right: 0px; padding-left: 0px; padding-bottom: 3.875em; margin-top: 0px; margin-right: 0px; margin-left: 0px; margin-bottom: 0px; width: 100%; height: auto; position: relative; top: 0px; right: 0px; bottom: 0px; left: 0px; *zoom: 1; }
+#heading:before, #heading:after { content: " "; display: table; }
+#heading:after { clear: both; }
+#heading header.jumbo h1 { color: #ffffff; font-size: 4.5em; line-height: 1; }
+#heading header.jumbo h2 { color: #009EE0; }
+
+.nav-strip { position: absolute; right: 0px; left: 0px; width: 100%; height: 50px; display: block; margin-bottom: 50px; background-color: #e0e0e0; }
+.nav-strip .sub-nav { display: block; padding-top: 16px; }
+.nav-strip .sub-nav dd.active a { color: white; }
+.nav-strip .sub-nav dd.active a:hover { color: #f0f0f0f; }
+.nav-strip .sub-nav dd a { color: #777; }
+.nav-strip .sub-nav dd a:hover { color: #535353; }

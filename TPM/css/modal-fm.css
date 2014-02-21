@@ -1,0 +1,294 @@
+@font-face {
+    font-family:'icomoon';
+    src:url('../fonts/icomoon/icomoon.eot');
+    src:url('../fonts/icomoon/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon/icomoon.woff') format('woff'), url('../fonts/icomoon/icomoon.ttf') format('truetype'), url('../fonts/icomoon/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@media screen and (max-width: 32em) {
+    body {
+        font-size: 75%;
+    }
+}
+a {
+    text-decoration: none;
+}
+button {
+    background-color: #ecb216;
+    color: #fff;
+    font-family: inherit;
+    font-weight: bold;
+    width: 200px;
+    font-size: 14px;
+    border-radius: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    outline:transparent 0 none;
+    -webkit-appearance:none;
+    border: 0 solid transparent;
+}
+.padded {
+    padding:20px;
+}
+.center {
+    text-align: center;
+}
+.center h1 {
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+}
+
+/*- General styles for the modal ---------------------------------*/
+ .md-perspective, .md-perspective body {
+    height: 100%;
+    overflow: hidden;
+}
+.md-perspective body {
+    background: #222;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+    perspective: 600px;
+}
+.container {
+    min-height: 100%;
+}
+
+/*--------------------------------------------------------------------------*|
+    Styles for New Modal Popups, Utilizses CSS3 transitions and transforms
+    to hide/show it.
+|*--------------------------------------------------------------------------*/
+
+/*--- BASE MODAL STYLES ----------------------------------------------------*/
+ .md-modal {
+    background-color: #f1f1f1;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    border-radius: 1px;
+    max-width: 80%;
+    min-width: 20%;
+    height: auto;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+@media screen and (max-width: 700px){
+    .md-modal {
+        min-height:60%;
+        height: 90%;
+        width: 98%;
+        position: absolute;
+        top: 25em;
+        max-width: 98%;
+    }
+}
+
+
+.md-show {
+    visibility: visible;
+}
+.md-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.79);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.md-show ~ .md-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+/*--------------------------------------------------------------------------*|
+    Styles for Inner Content of New Modals
+|*--------------------------------------------------------------------------*/
+ .md-content {
+    position: relative;
+    margin: 0;
+    padding: 60px;
+}
+.md-content button.md-close {
+    background-color: transparent;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+}
+.home-btn {
+    color: #0f7c67;
+    display: block;
+    line-height: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    position: absolute;
+    left: 20px;
+    margin-top: 3em;
+    bottom: 0;
+    -webkit-transition: color 1s ease;
+    -moz-transition: color 1s ease;
+    -ms-transition: color 1s ease;
+    transition: color 1s ease;
+}
+.home-btn:hover {
+    color: #0f0f0f;
+} 
+
+/*--------------------------------------------------------------------------*|
+     Individual modal styles with animations/transitions - Two Different
+     styles: Fade in and scale and slide in from the right
+|*--------------------------------------------------------------------------*/
+
+/* Effect 1: Fade in and scale up ---------------------------------*/
+ .md-effect-1 .md-content {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.md-show.md-effect-1 .md-content {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+/* Effect 2: Slide from the right ---------------------------------*/
+ .md-effect-2 .md-content {
+    -webkit-transform: translateX(20%);
+    -moz-transform: translateX(20%);
+    -ms-transform: translateX(20%);
+    transform: translateX(20%);
+    opacity: 0;
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9)
+}
+.md-show.md-effect-2 .md-content {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.fade, .fade-in {
+    -webkit-transition: opacity .45s linear;
+    -moz-transition: opacity .45s linear;
+    -ms-transition: opacity .45s linear;
+    transition: opacity .45s linear;
+}
+.fade {
+    opacity: 0;
+}
+.fade-in {
+    opacity: 1;
+}
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+ .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+/*--------------------------------------------------------------------------*|
+     Styles for Buttons
+|*--------------------------------------------------------------------------*/
+ .btn {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+@media screen and (max-width: 865px) {
+    .btn {
+        padding: 15px 40px;
+        margin: 10px 25px;
+    }
+}
+.btn:after {
+    content:'';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.btn:before, .home-btn:before {
+    font-family:'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Arrow Icons    -------------------------------------------------*/
+.icon-arrow-left:before {
+    content:"\e003";
+}
+.icon-arrow-right:before {
+    content:"\e00d";
+}
+
+/* Specific Button Style Base     ---------------------------------*/
+ .btn-2 {
+    background: #ecb216;
+    color: #fff;
+    box-shadow: 0 6px #D09D11;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
+
+/* Specific Button Style Modifiers --------------------------------*/
+ .btn-2a {
+    border-radius: 0 0 5px 5px;
+}
+.btn-2a:hover {
+    box-shadow: 0 4px #D09D11;
+    top: 2px;
+}
+.btn-2a:active {
+    box-shadow: 0 0 #D09D11;
+    top: 6px;
+}

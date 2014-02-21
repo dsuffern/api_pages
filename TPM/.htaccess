@@ -1,0 +1,623 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^general\-surgery\-certifying\-oral\-board\-home\-study\.html$ "http\:\/\/www\.thepassmachine\.com\/general\-surgery\-certifying\-oral\-board\-online\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^medical\-oncology\-certification\-exam\-prep\-course\.html$ "http\:\/\/medoncreview\.com\/" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^medical\-oncology\-moc\-exam\-prep\-course\.html$ "http\:\/\/medoncreview\.com\/" [R=301,L]
+
+# ##############################################################################
+# # WEB PERFORMANCE                                                            #
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# | Compression                                                                |
+# ------------------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+
+    # Force compression for mangled headers.
+    # http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    # Compress all output labeled with one of the following MIME-types
+    # (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
+    #  and can remove the `<IfModule mod_filter.c>` and `</IfModule>` lines
+    #  as `AddOutputFilterByType` is still in the core directives).
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE application/atom+xml \
+                                      application/javascript \
+                                      application/json \
+                                      application/rss+xml \
+                                      application/vnd.ms-fontobject \
+                                      application/x-font-ttf \
+                                      application/x-web-app-manifest+json \
+                                      application/xhtml+xml \
+                                      application/xml \
+                                      font/opentype \
+                                      image/svg+xml \
+                                      image/x-icon \
+                                      text/css \
+                                      text/html \
+                                      text/plain \
+                                      text/x-component \
+                                      text/xml
+    </IfModule>
+
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | Content transformations                                                    |
+# ------------------------------------------------------------------------------
+
+# Prevent some of the mobile network providers from modifying the content of
+# your site: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.5.
+
+ <IfModule mod_headers.c>
+    Header set Cache-Control "no-transform"
+ </IfModule>
+
+# ------------------------------------------------------------------------------
+# | ETag removal                                                               |
+# ------------------------------------------------------------------------------
+
+# Since we're sending far-future expires headers (see below), ETags can
+# be removed: http://developer.yahoo.com/performance/rules.html#etags.
+
+# `FileETag None` is not enough for every server.
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+
+FileETag None
+
+# ------------------------------------------------------------------------------
+# | Expires headers (for better cache control)                                 |
+# ------------------------------------------------------------------------------
+
+# The following expires headers are set pretty far in the future. If you don't
+# control versioning with filename-based cache busting, consider lowering the
+# cache time for resources like CSS and JS to something like 1 week.
+
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
+
+  # CSS
+    ExpiresByType text/css                              "access plus 1 year"
+
+  # Data interchange
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+
+  # Favicon (cannot be renamed!)
+    ExpiresByType image/x-icon                          "access plus 1 week"
+
+  # HTML components (HTCs)
+    ExpiresByType text/x-component                      "access plus 1 month"
+
+  # HTML
+    ExpiresByType text/html                             "access plus 0 seconds"
+
+  # JavaScript
+    ExpiresByType application/javascript                "access plus 1 year"
+
+  # Manifest files
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+  # Media
+    ExpiresByType audio/ogg                             "access plus 1 month"
+    ExpiresByType image/gif                             "access plus 1 month"
+    ExpiresByType image/jpeg                            "access plus 1 month"
+    ExpiresByType image/png                             "access plus 1 month"
+    ExpiresByType video/mp4                             "access plus 1 month"
+    ExpiresByType video/ogg                             "access plus 1 month"
+    ExpiresByType video/webm                            "access plus 1 month"
+
+  # Web feeds
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+
+  # Web fonts
+    ExpiresByType application/font-woff                 "access plus 1 month"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 month"
+    ExpiresByType application/x-font-ttf                "access plus 1 month"
+    ExpiresByType font/opentype                         "access plus 1 month"
+    ExpiresByType image/svg+xml                         "access plus 1 month"
+
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | Web fonts access                                                           |
+# ------------------------------------------------------------------------------
+
+# Allow access from all domains for web fonts
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# ##############################################################################
+# # INTERNET EXPLORER                                                          #
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# | Better website experience                                                  |
+# ------------------------------------------------------------------------------
+
+# Force IE to render pages in the highest available mode in the various
+# cases when it may not: http://hsivonen.iki.fi/doctype/ie-mode.pdf.
+# Use, if installed, Google Chrome Frame.
+
+<IfModule mod_headers.c>
+    Header set X-UA-Compatible "IE=edge,chrome=1"
+    <FilesMatch "\.(appcache|crx|css|eot|gif|htc|ico|jpe?g|js|m4a|m4v|manifest|mp4|oex|oga|ogg|ogv|otf|pdf|png|safariextz|svg|svgz|ttf|vcf|webapp|webm|webp|woff|xml|xpi)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | Cookie setting from iframes                                                |
+# ------------------------------------------------------------------------------
+
+# Allow cookies to be set from iframes in IE. Will help Analytics tracking.
+
+# <IfModule mod_headers.c>
+#   Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+# </IfModule>
+
+# ##############################################################################
+# # MIME TYPES AND ENCODING                                                    #
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# | Proper MIME types for all files                                            |
+# ------------------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+
+  # Audio
+    AddType audio/mp4                                   m4a f4a f4b
+    AddType audio/ogg                                   oga ogg
+
+  # JavaScript
+    AddType application/javascript                      js jsonp
+    AddType application/json                            json
+
+  # Video
+    AddType video/mp4                                   mp4 m4v f4v f4p
+    AddType video/ogg                                   ogv
+    AddType video/webm                                  webm
+    AddType video/x-flv                                 flv
+
+  # Web fonts
+    AddType application/font-woff                       woff
+    AddType application/vnd.ms-fontobject               eot
+    AddType application/x-font-ttf                      ttc ttf
+    AddType font/opentype                               otf
+
+    # Make SVGZ fonts work on iPad: https://twitter.com/FontSquirrel/status/14855840545
+    AddType     image/svg+xml                           svg svgz
+    AddEncoding gzip                                    svgz
+
+  # Other
+    AddType application/octet-stream                    safariextz
+    AddType application/x-chrome-extension              crx
+    AddType application/x-opera-extension               oex
+    AddType application/x-shockwave-flash               swf
+    AddType application/x-web-app-manifest+json         webapp
+    AddType application/x-xpinstall                     xpi
+    AddType application/xml                             atom rdf rss xml
+    AddType image/webp                                  webp
+    AddType image/x-icon                                ico
+    AddType text/cache-manifest                         appcache manifest
+    AddType text/vtt                                    vtt
+    AddType text/x-component                            htc
+    AddType text/x-vcard                                vcf
+
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | UTF-8 encoding                                                             |
+# ------------------------------------------------------------------------------
+
+AddDefaultCharset utf-8
+
+<IfModule mod_mime.c>
+    AddCharset utf-8 .atom .css .js .json .rss .vtt .webapp .xml
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | File access                                                                |
+# ------------------------------------------------------------------------------
+
+# Block access to directories without a default document.
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# Block access to hidden files and directories. This includes directories used by version control systems such as Git and SVN.
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# Block access to backup and source files. These files may be left by some text editors and can pose a great security
+# danger when anyone has access to them.
+
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# ------------------------------------------------------------------------------
+# | URL REWRITES                                                               |
+# ------------------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^GP13\.html$ "http\:\/\/www\.beattheboards\.com\/GP13\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^an2012\.html$ "http\:\/\/www\.thepassmachine\.com\/dashboards\/12ANnov_login\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/vascular\-surgery\-recertification\-board\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/vascular\-surgery\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/vascular\-surgery\-certification\-board\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/vascular\-surgery\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/emergency\-medicine\-concert\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/sleep\-medicine\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/sleep\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/pediatrics\-maintenance\-of\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/pediatrics\-maintenance\-of\-certification\-exam\-prep\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/pediatrics\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/pediatrics\-certification\-exam\-prep\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/general\-surgery\-recertification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/general\-surgery\-recertification\-exam\-prep\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/general\-surgery\-certifying\-oral\-board\-home\-study\.html$ "http\:\/\/thepassmachine\.com\/general\-surgery\-certifying\-oral\-board\-home\-study\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/general\-surgery\-qualifying\-board\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/general\-surgery\-qualifying\-exam\-prep\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/family\-medicine\-maintenance\-of\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/family\-medicine\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/family\-medicine\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/family\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/cardiovascular\-disease\-maintenance\-of\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/cardiovascular\-disease\-maintenance\-of\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/cardiovascular\-disease\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/cardiovascular\-disease\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/internal\-medicine\-moc\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/internal\-medicine\-moc\-exam\-prep\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^html\/internal\-medicine\-certification\-exam\-prep\-course\.html$ "http\:\/\/thepassmachine\.com\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^Gs211$ "http\:\/\/thepassmachine\.com\/gs211\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^GS211$ "http\:\/\/thepassmachine\.com\/gs211\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^gs211$ "http\:\/\/thepassmachine\.com\/gs211\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^sM$ "http\:\/\/thepassmachine\.com\/html\/sleep\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Sm$ "http\:\/\/thepassmachine\.com\/html\/sleep\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^SM$ "http\:\/\/thepassmachine\.com\/html\/sleep\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Gs$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^gs$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^GS$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .htm .html
+
+ErrorDocument 404 /404.shtml
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^100terms\ $ "http\:\/\/www\.thepassmachine\.com\/100terms\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-1\.html$ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-qualifying\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-1\ $ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-qualifying\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^g2\-home\-course\.html\ $ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-home\-study\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-3\.html\ $ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-3$ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^internal\-medicine\-certifying\-exam\-prep\-course$ "http\:\/\/www\.thepassmachine\.com\/html\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^internal\-medicine\-certifying\-exam\-prep\-course\.html\ $ "http\:\/\/www\.thepassmachine\.com\/html\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^internal\-medicine\-moc\-exam\-prep\-course\ $ "http\:\/\/www\.thepassmachine\.com\/html\/internal\-medicine\-moc\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^emergency\-medicine\-concert\-exam\-prep\-course\ $ "http\:\/\/www\.thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html\ \ " [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^QE$ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-qualifying\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^qe$ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-qualifying\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Qe$ "http\:\/\/www\.thepassmachine\.com\/html\/general\-surgery\-qualifying\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMQual$ "http\:\/\/www\.thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Emqual$ "http\:\/\/www\.thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^concert\ $ "http\:\/\/www\.thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html\ \ \ " [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^ConCert\ $ "http\:\/\/www\.thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html\ \ " [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-qualifying\-online\-practice\-exams\-webinars$ "http\:\/\/www\.thepassmachine\.com\/general\-surgery\-qualifying\-online\-practice\-exams\-webinars\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^2010\-general\-surgery\-qualifying\-online\-practice\-exams\-webinars$ "http\:\/\/thepassmachine\.com\/2010\-general\-surgery\-qualifying\-online\-practice\-exams\-webinars\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^2010\-general\-surgery\-certifying\-webinars\-uygb$ "http\:\/\/thepassmachine\.com\/2010\-general\-surgery\-certifying\-webinars\-uygb\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^2010\-general\-surgery\-recertification\-online\-practice\-exams\-webinars$ "http\:\/\/thepassmachine\.com\/2010\-general\-surgery\-recertification\-online\-practice\-exams\-webinars\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^100terms\ $ "http\:\/\/www\.thepassmachine\.com\/100terms\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^g2\-home\-course$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-home\-study\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^concert$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^ConCert$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Concert$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^CONCERT$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^g2\-home\-course\.html$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-home\-study\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-3\.html$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^emergency\-medicine\-qualifying\-exam\-prep\-course$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^emqual$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMQUAL$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMqual$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-qualifying\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^im$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^IM$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Im$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^moc$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-moc\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Moc$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-moc\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^MOC$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-moc\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^MoC$ "http\:\/\/thepassmachine\.com\/html\/internal\-medicine\-moc\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^general\-surgery\-recertification\-online\-practice\-exams\-webinars$ "http\:\/\/thepassmachine\.com\/general\-surgery\-recertification\-online\-practice\-exams\-webinars\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^ReCert$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-recertification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^ce$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^CE$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^Ce$ "http\:\/\/thepassmachine\.com\/html\/general\-surgery\-certifying\-oral\-board\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^2010\-emergency\-medicine\-qualifying\-exam\-web\-ghgsdfg\.htm$ "http\:\/\/www\.\ thepassmachine\.com\/2010\-emergency\-medicine\-qualifying\-exam\-web\-ghgsdfg\.htm" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^2010\-emergency\-medicine\-qualifying\-exam\-web\-ghgsdfg\.html$ "http\:\/\/www\.thepassmachine\.com\/2010\-emergency\-medicine\-exam\-web\-ghgsdfg\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMTrial$ "http\:\/\/www\.thepassmachine\.com\/EMTrial\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMTRIAL$ "http\:\/\/www\.thepassmachine\.com\/EMTrial\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^EMtrial$ "http\:\/\/www\.thepassmachine\.com\/EMTrial\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Emtrial$ "http\:\/\/www\.thepassmachine\.com\/EMTrial\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^emtrial$ "http\:\/\/www\.thepassmachine\.com\/EMTrial\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^Trial$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^trial$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^TRIAL$ "http\:\/\/thepassmachine\.com\/html\/emergency\-medicine\-concert\-exam\-prep\-course\.html" [R=301,L]
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^2011\-general\-surgery\-qualifying\-online\-practice\-exams\-webinars\-\;lkec\.html$ "http\:\/\/thepassmachine\.com\/2011\-general\-surgery\-qualifying\-online\-practice\-exams\-webinars\-lkec\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www.thepassmachine.com$
+RewriteRule ^sm$ "http\:\/\/thepassmachine\.com\/html\/sleep\-medicine\-certification\-exam\-prep\-course\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^Recert$ "http\:\/\/thepassmachine\.com\/3\-biggest\-mistakes\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^RECERT$ "http\:\/\/thepassmachine\.com\/3\-biggest\-mistakes\.html" [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^thepassmachine\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.thepassmachine\.com$
+RewriteRule ^recert$ "http\:\/\/thepassmachine\.com\/3\-biggest\-mistakes\.html" [R=301,L]
+

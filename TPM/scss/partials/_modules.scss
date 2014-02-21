@@ -1,0 +1,157 @@
+
+/* ---------------------------------------
+ *  Accordion Buttons & Content
+ */
+.accordionButton { cursor:pointer; line-height: 1.25; }
+.accordionContent { 
+    @include scut-padding(5px 0 10px 20px); 
+    cursor:pointer; 
+    line-height: 1.25;
+    li { font-size: 16px; 
+        @media only screen and (max-width: 480px){
+            font-size: 14px;
+        }
+    }
+} 
+
+/* --------------------------------------
+ *  Blockquote & Author Styles
+ */
+.quote {
+    padding-right:70px;
+    font:normal 18px/23px'AlegreyaItalic';
+    color:#009ee0
+}
+.author {
+    display:block;
+    text-transform:uppercase;
+    font-size:10px
+}
+#topc {
+    background-color:#FFF;
+    padding:20px 0 10px 0;
+    -webkit-box-shadow:0 3px 5px #ccc;
+    box-shadow:0 3px 5px #ccc;
+    display:block;
+    hgroup {
+        display: block;
+        text-align: center;
+    }
+} 
+ 
+
+/* --------------------------------------
+ * Yellow Bar Widget
+ * Full Width, Vertically Centered Images
+ */
+.yellow-bar {  
+    background-color: $yellow;
+    color: #fff; 
+    @include scut-padding(1em n 1em n);
+    margin-bottom: 1em;
+    @include grid-row();
+    max-height: 225px;
+
+   & figure:first-of-type { 
+        @include grid-column(2); 
+        img {
+          @include position(absolute, -10px 0px 0px 0px);
+        }
+      }
+   > article {
+           @include grid-column(6); padding-top: 10px; 
+           strong {  font: normal 17px/150% $header-font-family; 
+                     letter-spacing: 3px;
+                     font-weight: normal;
+                     display: block;
+                     text-transform: uppercase;
+                     margin-left: 0;
+                     padding-top: 10px;  }
+          ul { display: block;
+               padding-top: 10px; 
+               padding-left: 0; 
+               list-style-image:url('http://thepassmachine.com/css/img/headingli.jpg'); }
+          li { font: 500 14px/1.5 $body-font-family; }
+    }
+   & figure:last-of-type {
+        @include grid-column(4, false, true);
+        margin-right: 0;
+        & img { height: 247px; @include position(absolute, -106px 10px 100% 0); }
+    }
+}  
+
+/* --------------------------------------
+ * Jumbo Header & Child Elements
+ */
+header.jumbo {
+    max-width: 95%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 1.00em;
+    h1 { font-size: 50px; margin-bottom: 0; color: $blueBright; text-transform: uppercase; }
+    h2 { font-size: 38px; letter-spacing: 0; color: $yellow; text-transform: uppercase; }
+}
+
+/* --------------------------------------
+ * Featured Images for Callout Banner 
+ * 50% Width, Content Centered and Top V-align
+ */
+.feat-images {
+    @include grid-row();   
+    figure {
+        @include grid-column(6);
+        img { @include size(100% 312px); 
+              padding: 0;
+              margin: 0;
+              display: block; }
+    }
+  
+    figcaption { @include scut-absolute(0 0 n 0);  
+                 display: block;
+                 width: 96%;
+                 max-width: 100%;
+                 margin-left: 1.825%;
+                 margin-top: -0.75%;
+                 height:60px;
+        header { background-color:rgba(200, 200, 200, 0.58);
+                 display:block; 
+                 text-align: center; }
+             }     
+
+            h3 {
+                background-color:rgba(255, 255, 255, 0.75);
+                color:#09e;
+                font-size:32px;
+                line-height:100%;
+                text-transform:uppercase;                 
+            }                        
+            h4 { font-size:22px; color:#000; }
+               
+    }
+
+/* --------------------------------------
+ *      FULL WIDTH STRIPS
+ *    Fill X-axis, Use Modifiers 
+ */
+.strip {
+    display: block;
+    @include position(absolute, 0 0px 0 0px);
+    // padding: 1.75em 0px 1.75em;
+    // min-height: 300px;
+    // max-width: 1120px;
+    width: 100%;
+    // margin-left: auto;
+    // margin-right: auto;
+    overflow: hidden;
+    
+    @include clearfix;
+
+    &.bg-shade {
+        background: url(http://subtlepatterns.com/patterns/stardust.png);
+    }
+
+    &.vertical-space {
+      padding: 4em 0px 4em;
+    }
+ 
+}

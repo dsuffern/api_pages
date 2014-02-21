@@ -1,0 +1,543 @@
+@font-face {font-family: 'LeagueGothicRegular';src: url('League_Gothic-webfont.eot');src: url('League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),url('League_Gothic-webfont.woff') format('woff'),url('League_Gothic-webfont.ttf') format('truetype'),url('League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'gotham_boldregular';src: url('gotham-bold-webfont.eot');src: url('gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),url('gotham-bold-webfont.woff') format('woff'),url('gotham-bold-webfont.ttf') format('truetype'),url('gotham-bold-webfont.svg#gotham_boldregular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaRegular';src: url('Alegreya-Regular-webfont.eot');src: url('Alegreya-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('Alegreya-Regular-webfont.woff') format('woff'),url('Alegreya-Regular-webfont.ttf') format('truetype'),url('Alegreya-Regular-webfont.svg#AlegreyaRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaItalic';src: url('Alegreya-Italic-webfont.eot');src: url('Alegreya-Italic-webfont.eot?#iefix') format('embedded-opentype'),url('Alegreya-Italic-webfont.woff') format('woff'),url('Alegreya-Italic-webfont.ttf') format('truetype'),url('Alegreya-Italic-webfont.svg#AlegreyaItalic') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaSCRegular';src: url('AlegreyaSC-Regular-webfont.eot');src: url('AlegreyaSC-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('AlegreyaSC-Regular-webfont.woff') format('woff'),url('AlegreyaSC-Regular-webfont.ttf') format('truetype'),url('AlegreyaSC-Regular-webfont.svg#AlegreyaSCRegular') format('svg');font-weight: normal;font-style: normal}
+
+/* 
+@font-face {font-family: 'LeagueGothicRegular'; src: url('http://www.americanphysician.com/css/League_Gothic-webfont.eot'); src: url('http://americanphysician.com/css/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'), url('http://americanphysician.com/css/League_Gothic-webfont.woff') format('woff'), url('http://americanphysician.com/css/League_Gothic-webfont.ttf') format('truetype'), url('http://americanphysician.com/css/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'gotham_boldregular';src: url('http://americanphysician.com/css/gotham-bold-webfont.eot');src: url('http://americanphysician.com/css/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),url('http://americanphysician.com/css/gotham-bold-webfont.woff') format('woff'),url('http://americanphysician.com/css/gotham-bold-webfont.ttf') format('truetype'),url('http://americanphysician.com/css/gotham-bold-webfont.svg#gotham_boldregular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaRegular';src: url('http://americanphysician.com/css/Alegreya-Regular-webfont.eot');src: url('http://americanphysician.com/css/Alegreya-Regular-webfont.eot?#iefix') format('embedded-opentype'),url('http://americanphysician.com/css/Alegreya-Regular-webfont.woff') format('woff'),url('http://americanphysician.com/css/Alegreya-Regular-webfont.ttf') format('truetype'),url('http://americanphysician.com/css/Alegreya-Regular-webfont.svg#AlegreyaRegular') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaItalic';src: url('http://americanphysician.com/css/Alegreya-Italic-webfont.eot');src: url('http://americanphysician.com/css/Alegreya-Italic-webfont.eot?#iefix') format('embedded-opentype'),url('http://americanphysician.com/css/Alegreya-Italic-webfont.woff') format('woff'),url('http://americanphysician.com/css/Alegreya-Italic-webfont.ttf') format('truetype'),url('http://americanphysician.com/css/Alegreya-Italic-webfont.svg#AlegreyaItalic') format('svg');font-weight: normal;font-style: normal}
+@font-face {font-family: 'AlegreyaSCRegular'; src: url('http://americanphysician.com/css/AlegreyaSC-Regular-webfont.eot'); src: url('http://americanphysician.com/css/AlegreyaSC-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('http://americanphysician.com/css/AlegreyaSC-Regular-webfont.woff') format('woff'), url('http://americanphysician.com/css/AlegreyaSC-Regular-webfont.ttf') format('truetype'), url('http://americanphysician.com/css/AlegreyaSC-Regular-webfont.svg#AlegreyaSCRegular') format('svg');font-weight: normal;font-style: normal}
+ */ 
+figure, video, article, section, footer, nav {display: block; margin: 0; padding: 0;}
+img, object, embed { max-width: 100%; height: auto; }
+object, embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; display: inline-block; vertical-align: middle; }
+
+/*  Base Styles  
+----------------------------------------------- */
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+html, body { font-size: 100%; }
+body { background-color:#eaeaea; 
+       font-family:Arial, Helvetica, sans-serif; 
+       line-height: 1;
+       padding:0; 
+       margin:0; 
+       color:#666666;
+       cursor: default;
+       word-wrap: break-word; }
+small {font-size: 65%;}
+li, a { font-size:14px; line-height:24px} 
+p strong{ color:#000} 
+ul{ margin:0; padding:0} 
+ul.ind{margin-left:20px}
+a { text-decoration: none; }
+a.top{  font:normal 18px/1 'LeagueGothicRegular'; 
+        text-transform:uppercase; 
+        text-decoration:none; 
+        color:#b1b1b1;
+        background: transparent url('img/atop.png') no-repeat right;
+        float:right; 
+        padding-right:25px;
+        position:relative; 
+        left:80px; 
+        bottom:10px} 
+  a.top:hover{ color:#000; }
+/* Blockquotes */
+blockquote { margin: 0 0 1.25em; padding: 0.5625em 1.25em 0 1.1875em; border-left: 1px solid #9a9a9a; -webkit-transition: all 400ms ease-in; -moz-transition: all 400ms ease-in;-ms-transition: all 400ms ease-in;-o-transition: all 400ms ease-in; transition: all 400ms ease-in;}
+blockquote:hover {border-left: 1px solid #ecb216;}
+blockquote cite { display: block; font-size: 0.8125em; color: #555555; } blockquote cite:before { content: "\2014 \0020"; } 
+blockquote cite a, blockquote cite a:visited { color: #555555; } blockquote, blockquote p {font-size: 0.875em; line-height: 1.6; color: #6a6a6a; }
+hr {border: solid #dddddd;
+    border-width: 1px 0 0;
+    clear: both;
+    margin: 1.25em 0 1.1875em;
+    height: 0; }
+
+/*  TYPOGRAPHIC Styles  
+----------------------------------------------- */
+p { font-family: Arial, Helvetica;
+    font-weight: normal;
+    font-size: 0.875em;
+    line-height: 1.6;
+    margin-bottom: 1.25em;
+    text-rendering: optimizeLegibility; } 
+h1,h2,h3,h4,h5,h6 { font-family: 'LeagueGothicRegular';
+                    font-weight: normal;
+                    font-style: normal;
+                    line-height: 1.2125em;
+                    margin-top: 0.2em;
+                    margin-bottom: 0.5em;
+                    text-rendering: optimizeLegibility; 
+                    text-transform: uppercase; } 
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
+h1 { color:#009ee0; font-size: 3.425em; letter-spacing: -1px;}
+h2 { color:#ecb216; font-size: 2em; }
+h3 { color:#ecbe13; font-size: 1.6875em; }
+h4 { font-size: 1.125em; }
+h5 { font-size: 1.125em; }
+h6 { font-size: 1em; }
+.alpha {  font-size: 60px;
+          font-size: 3.33333rem; /* 60 / 18 = 3.3333 */
+          margin-bottom: 0.495em; }
+.beta { font-size: 48px;
+        font-size: 2.6667rem; /* 48 / 18 = 2.6667 */
+        margin-bottom: 0.61875em; }
+.gamma { font-size: 36px;
+         font-size: 2rem; /* 36 / 18 = 2 */
+         margin-bottom: 0.825em; }
+    .accordionContent {
+      line-height: 1.63em; 
+      font-size: 16px;
+      padding: 10px;
+    }
+    .accordionButton {
+      cursor: pointer;
+      line-height: 1.5;
+    }
+/*  FORMS Styles  
+----------------------------------------------- */
+  input[type="text"]{  border: 1px solid #cacaca;
+                       height: 30px;
+                       line-height: 26px;
+                       font-size: 1em;
+                       font-weight: normal;
+                       padding: 5px;
+                       color: #6a6a6a;  }
+  input[type="text"]:active { border: 1px solid #0099e0; outline: 1px solid #0099e0; box-shadow: none; }
+  input[type="submit"] {  border: none;
+                          padding: 10px 15px;
+                          font-family: Arial;
+                          font-weight: bold;
+                          background-color: #009ee0;
+                          color: #ffffff;
+                          cursor: pointer;
+                          outline: 0;
+                          text-align: center;
+                          min-width: 200px;
+                          min-height: 50px;
+                          line-height: 100%;
+                          font-size: 18px;
+                          -webkit-transition: background-color 350ms ease-in-out;
+                          -moz-transition: background-color 350ms ease-in-out;
+                          -ms-transition: background-color 350ms ease-in-out;
+                          transition: background-color 350ms ease-in-out; }
+  input[type="submit"]:hover { background-color: #0074f5; }
+  textarea {  border: thin solid #9f9f9f;
+              font-family: 'Arial';
+              max-width: 98%; 
+              width: 90%;
+              margin: 0 auto;
+              cursor: pointer;
+              min-height: 100px; }
+
+
+/*  Wrapper Component Styles  
+-----------------------------------------------*/
+#wrapper{ width:100%; max-width:960px; margin:0 auto; }
+#wrapper:before, #wrapper:after { content: " "; display: table; }
+#wrapper:after {clear: both;}
+
+/*   Dividers - Base Styles
+-----------------------------------------------*/
+#divider{ clear:both; color:#FFF} 
+#divider2{ clear:both; color:#eaeaea}
+
+/*  Block Holders - Base Styles
+-----------------------------------------------*/
+#block{ background-color:#FFF; box-shadow: 0 3px 5px #CCCCCC; padding: 47px; }
+
+/*  Footer & Bottom - Base Styles
+-----------------------------------------------*/
+#footer{ font-size:10px; color:#989898; text-transform:uppercase; margin-bottom:20px; clear:both}
+#bottom{ display:block; clear:both; color:#FFF}
+
+/*  Top & Header - Base Styles
+-----------------------------------------------*/
+#top{ border-top: solid 5px #ecb216; padding-top:12px; } #top:before, #top:after { display:table; content: " "; } #top:after {clear:both; }
+#logo{ float:left; color:#9f9f9f; font-family:'AlegreyaRegular', Arial, Helvetica, sans-serif; line-height:100%; font-size:13px; background-image:url(http://americanphysician.com/css/img/logo.jpg); background-repeat:no-repeat; background-position:0 0; padding-left:50px}
+#logo strong{ -webkit-text-stroke: 1px #000; font-weight: normal; font-family:'gotham_boldregular', Arial, Helvetica, sans-serif; font-size:33px; line-height:1.25; color:#0f0f0f; text-transform:uppercase; display:block; letter-spacing:-2px; text-rendering: optimizeLegibility; font-weight: normal; margin-top: -5px; }
+#phone{ float:right; width:30%; font-size:10px; color:#9f9f9f; padding-top:7px; text-align:right}
+#phone strong{ text-transform:uppercase; font-size:18px; font-weight:bold; color:#ecb216; display:block; padding-bottom:3px}
+#divider.top{ border-bottom:1px solid #d3d3d3; height:1px; padding-top:15px}
+
+@media screen and (max-width: 960px) {
+  #phone {
+    float: left; 
+    width: 100%;
+    display: block;
+  }
+}
+
+/*  Navigation Menu - Base Styles 
+-----------------------------------------------*/
+#menu { border-top:1px solid #FFFFFF; padding:14px 0} 
+  #menu li { display:inline; list-style:none} 
+    #menu ul li a { color:#9f9f9f; }
+#menu:before, #menu:after { display: table; content: " "; } #menu:after { clear: both; }
+#menu li a:hover, #menu li.register a:hover{ color:#000000} #menu li.register a{ color:#ecb216}
+#menu ul { list-style: none; margin: 0; padding: 0; overflow: hidden; } 
+#menu li { float: left; background-color: transparent; }
+#menu a { display: block;
+                  padding: 0px 15px;
+                  color: #fff;
+                  font-weight: bold;
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  -webkit-transition: all 322ms ease-in-out;
+                  -moz-transition: all 322ms ease-in-out ;
+                  -ms-transition: all 322ms eas-in-out; 
+                  transition:  all 322ms ease-in-out; }
+#menu > ul > li > a:first-of-type { padding-left: 0; }
+#menu ul ul { max-height: 0;
+              z-index: 200;
+              position: absolute; 
+              -webkit-backface-visibility:hidden ;
+              -moz-backface-visibility:hidden ;
+              -ms-backface-visibility:hidden ;
+              backface-visibility: hidden;
+              -webkit-transition: all 900ms ease-in-out;
+              -moz-transition: all 900ms ease-in-out;
+              -ms-transition: all 900ms ease-in-out; 
+               transition:  all 900ms ease-in-out;
+              background-color: #ecb216; }
+
+#menu ul ul li {     float: none; 
+                     background-color: #ecb216; 
+                    -webkit-transition: all 422ms ease-in-out;
+                    -moz-transition: all 422ms ease-in-out ;
+                    -ms-transition: all 422ms eas-in-oute ; 
+                    transition:  all 422ms ease-in-out; } 
+#menu ul ul li a:first-of-type { padding-top: 7px; }
+#menu ul ul li a:last-of-type  { padding-bottom: 7px; }
+#menu ul ul li a {  color: #fff;
+                    line-height:1.5;
+                    -webkit-transition: all 422ms ease-in-out;
+                    -moz-transition: all 422ms ease-in-out ;
+                    -ms-transition: all 422ms eas-in-oute ; 
+                    transition:  all 422ms ease-in-out; }
+#menu ul li:hover ul { max-height: 999px; z-index: 200; }
+ 
+/*  -----------------------------------------------------------------------------------  */
+
+/*  Heading - Base Styles & Modifiers 
+-----------------------------------------------*/
+#heading{ background-image:url('http://americanphysician.com/css/img/headingbg.jpg'); background-repeat:no-repeat; background-position:bottom right; background-color:#FFF; box-shadow: 0 3px 5px #CCCCCC; height:420px}
+h1.heading{ font-family: 'LeagueGothicRegular'; font-size:63px; line-height:63px; padding:35px 0 10px 40px; margin-bottom: 0.3em;  width:60%}
+#headingblank {  background-color: white; box-shadow: 0 3px 5px #CCC; height: 345px; padding: 0 0 0 37px; overflow-y: hidden;}
+#heading p{ margin:5px 40px; width:45%}
+a.button{ background-color:#ecbe13; padding:10px 15px; font-family:'gotham_boldregular', Arial, Helvetica, sans-serif; text-decoration:none; text-transform:uppercase; color:#FFF; font-size:16px}
+a.button:hover{ background-color:#009ee0}
+#jack{ font-size:12px; color:#000000; float:right; position:relative; bottom:25px; right:340px} #jack span{ display:block; color:#666666}
+#shadow{ background-image:url('http://americanphysician.com/css/img/shadow.png'); background-repeat:no-repeat; background-position:left; height:24px; color:#eaeaea}
+#heading-video{float:right;margin:10px;}
+
+/* jQuery UI Accordion - Nested Styles 
+-----------------------------------------------*/
+.accordion h2{ padding:15px 45px}
+.accordion h3{  background-image:url('img/shadow_accordion.gif'); background-repeat:no-repeat; padding:20px 45px 17px 45px}
+.accordion h3:focus{ border:none; text-decoration:none}
+.accordion h3:hover{ color:#666}
+.accordion h3:before{ content:url('img/h3bullet.png')}
+.accordion h3.ui-state-active:before{ content:url('img/h3bullethover.png')}
+.accordion p{ padding:0 70px; margin:0}
+.accordion p a{ font-weight:bold; color:#009ee0} .accordion p a:hover{ color:#666; text-decoration:none}
+#accordion div{ padding-bottom:20px}
+#colfea{ float:left; width:190px;margin:5px 10px;font-size:14px;text-align:center}
+#colfac{ float:left; width:47%; margin-right:30px;font-size:12px;}
+#colpar{ float:left; width:47%;font-size:12px;}
+#callbot{margin-top:10px}
+
+/*  Master Psych Links & List
+-----------------------------------------------*/
+.masterpsych{ padding:45px; padding-bottom:0}
+.masterpsych h1{ font-size:71px;  line-height:68px; width:50%; float:left}
+.masterpsych h1 span, .masterpsych p span{ color:#000}
+.masterpsych p{ margin:0}
+.masterpsych .right{ float:right; width:47%}
+.masterpsych ul{ padding:0}
+.masterpsych li{border-bottom:1px solid #e2e2e2; background-image:url('http://americanphysician.com/css/img/bullet.jpg'); background-repeat:no-repeat; background-position:left;/* padding:15px 30px;*/ list-style:none; color:#000}
+.masterpsych li.last{ border-bottom:none}
+.masterpsych li a{ text-decoration:none; color:#009ee0; background-image:url('http://americanphysician.com/css/img/link.gif'); background-repeat:no-repeat; background-position:right;}
+.masterpsych li a:hover{ color:#000}
+
+/*  Agenda - Base Styles 
+-----------------------------------------------*/
+h2.date{ margin:20px 0 7px 0}
+#agenda{ font-size:14px; border-bottom:1px solid #eaeaea; padding:5px}
+#agenda div{ display:inline-block}
+#agenda:hover div{ color:#000}
+#agenda #time{ vertical-align:top;width:15%}
+#agenda #title{vertical-align: top;font-weight:bold; width:60%}
+#agenda ul{margin:5px 0 0 20px;}
+#agenda li{font-size:11px;line-height:13px;}
+
+/*  Faculty Styles 
+-----------------------------------------------*/
+#block #col2 ul{ margin-top:-15px}
+#block #col2 li{ list-style:none; border-top:1px dotted #eaeaea; font-size:12px}
+#block #col3 ul{ margin-top:-15px}
+#block #col3 li{ list-style:none; border-top:1px dotted #eaeaea; font-size:12px}
+#col1{ float:left; width:260px}
+#coldoc{ float:left; width:150px}
+#col1 p{ font-family:'AlegreyaItalic', Georgia, "Times New Roman", Times, serif; font-size:18px; line-height:23px; padding-right:70px; color:#009ee0}
+#col1 span{ font-family:Georgia, "Times New Roman", Times, serif; color:#000; font-size:10px; line-height:18px; display:block; text-transform:uppercase}
+.colqt{ float:left; width:260px; clear:right;}
+.colqt p{ font-family:'AlegreyaItalic', Georgia, "Times New Roman", Times, serif; font-size:18px; line-height:23px; padding-right:70px; color:#009ee0}
+.colqt span{ font-family:Georgia, "Times New Roman", Times, serif; color:#000; font-size:10px; line-height:18px; display:block; text-transform:uppercase}
+.colqt1 {width:584px; float:right;} #col2{ float:right; width:584px} #col2 h1{ margin-top:80px} #col3{ float:right; width:700px} #col3 h1{ margin-top:80px} #col3 h2{  font-family: 'LeagueGothicRegular'; color: #ecbe13; font-size: 30px; font-weight: normal; text-transform: uppercase; margin: 0; }
+
+/*  Yellow Bar - Base Styles
+-----------------------------------------------*/
+#yellowbar{  background-color:#ecb216; color:#FFF; text-align:right; font-family:'LeagueGothicRegular'; font-size:30px; letter-spacing:3px; text-transform:uppercase; 
+              padding:20px 47px; width: 100%; margin: 0; box-shadow: 0 3px 5px #CCCCCC}
+#yellowbar strong{ font-weight:normal; color:#000}
+#yellowbar.prices{/*background-image:url(img/checkout.png);*/ background-repeat:no-repeat; background-position:890px center;}
+#yellowbar.prices a{ display:block; text-decoration:none; color:#FFF} #yellowbar.prices a:hover{ color:#000}
+
+/*  Pricing Tables - Base Styles 
+-----------------------------------------------*/
+#prices{ background-color:#FFF; box-shadow: 0 3px 5px #CCCCCC}
+#prices h1{ color:#009ee0; font-weight:normal; font-family:'LeagueGothicRegular', Arial, Helvetica, sans-serif; text-transform:uppercase; margin:0; font-size:60px; line-height:60px; letter-spacing:-1px; padding:30px 45px 20px 35px}
+#prices h1.gray{ color:#8f8f8f;}
+#prices table{ border-spacing:0; width:100%; }
+#prices td{vertical-align:top; cursor:pointer}
+#prices td.register{ width:50%;padding-left:20px}
+#prices td.get{ font-size:12px; padding:35px; background-image:url('http://americanphysician.com/css/img/blankline.gif'); background-repeat:repeat-x; background-position:top}
+#prices td.price{ font-family:'LeagueGothicRegular'; font-size:24px; color:#009ee0; padding:35px 30px; background-image:url('http://americanphysician.com/css/img/blankline.gif'); background-repeat:repeat-x; background-position:top}
+#prices td.title{ text-transform:uppercase; font-weight:bold; font-size:14px; line-height:16px; padding: 35px 0; background-image:url('http://americanphysician.com/css/img/blankline.gif'); background-repeat:repeat-x; background-position:top}
+#prices td.checkbox{ background-image:url(img/off.png); background-repeat:no-repeat; background-position: 35px 35px; width:75px; cursor:pointer; background-image:url('http://americanphysician.com/css/img/blankline.gif'); background-repeat:repeat-x; background-position:top;} 
+#prices td.checkbox:hover, #prices #active.checkbox{ background-image:url('img/check.png')}
+#prices td.title strong{ color:#000}
+#prices td.price, #prices td.title, #prices td.get, #prices td.checkbox{ border-top:1px solid #dedede}
+#prices td.price, #prices td.title, #prices td.register{ border-right:1px solid #dedede}
+#prices tr:hover, #prices tr:hover td.price{ color:#000 !important}
+.pricesp{ margin-left:40px;padding: 5px 10px}
+
+.ipad{ background-image:url(http://www.thepassmachine.com/css/img/ipadbg.jpg); background-repeat:no-repeat; background-position:bottom left; padding-left:330px}
+
+#yellowbar.ipad{ background-image:url(img/ipadbtmbg.png); background-repeat:no-repeat; background-position:top left}
+
+/* YELLOW BAR STYLES
+-----------------------------------------------*/
+.yellow-bar { width:100%;
+              height:170px;
+              display:block;
+              background:#ecb216;
+              color:#fff;
+              margin-top:10px;
+              margin-bottom:0 }
+.yellow-bar strong { font-family:Arial; font-size:15px; line-height:1.3; position: relative; top: 30px; left: 10px;}
+.yellow-bar ul { list-style-image:url('http://thepassmachine.com/css/img/headingli.jpg'); position: relative; top: 40px; left: 40px; }
+.yellow-bar li { font-family:'Arial'; }
+.yellow-bar img[src="http://thepassmachine.com/img/ttg-transparent.png"] {  position: relative; top: 15px; left: 15px;}
+.yellow-bar img[src^="http://thepassmachine.com/img/jackbtm.png"] {  -webkit-transform:translate(-15px, -80px);
+                                                                        -ms-transform:translate(-15px, -80px);
+                                                                            transform:translate(-15px, -80px); }
+
+/* FEAT SPLIT IMAGES
+-----------------------------------------------*/
+.feat-split-img { display:block; overflow:hidden; height:269px }
+.feat-split-img > img { width:100%; height:268px }
+.feat-split-img > figcaption {  position:absolute;
+                                max-width:100%;
+                                top:0;
+                                left:15px;
+                                right:0;
+                                height:105px }
+.feat-split-img>figcaption header { background-color:rgba(200, 200, 200, 0.58);
+                                    position:relative;
+                                    top:0;
+                                    left:0;
+                                    right:0;
+                                    height:105px;
+												width: 455px;
+                                    display:block;
+                                    text-align:center;
+                                    overflow:hidden }
+.feat-split-img>figcaption header h3 {  background-color:rgba(255, 255, 255, 0.75);
+                                        color:#09e;
+                                        font-size:30px;
+                                        line-height:100%;
+                                        margin-bottom:0;
+                                        margin-top:-10px;
+                                        text-align:center;
+                                        padding-top:20px }
+.feat-split-img>figcaption header h4 {  display:block;
+                                        color:#010101;
+                                        width:100%;
+                                        line-height:1;
+                                        padding-top:5px;
+                                        font-size:1.215em }
+
+/* - - -  Register Buttons              -  -  -
+-----------------------------------------------*/
+#register { background-color:#ecb216;
+            border:1px solid #ecb216;
+            border-radius:3px;
+            font-weight:bold;
+            color:white;
+            display:block;
+            margin:20px auto;
+            text-decoration:none;
+            padding:10px 20px;
+            max-width:200px;
+            -webkit-transition:all 500ms ease-in-out;
+            -moz-transition:all 500ms ease-in-out;
+            -ms-transition:all 500ms ease-in-out;
+            transition:all 500ms ease-in-out; }
+  #register:hover { background-color:#FFBC05; border:1px solid #FFBC05 }
+
+/* VIDEO PLAYER
+-----------------------------------------------*/
+#video-player {
+    padding: 10px;
+    width: 380px;  
+    display: block;
+    margin: 0 auto;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden; }
+    #video-player video { max-width: 100%;max-height: 300px;}
+
+/* TP LINK 
+-----------------------------------------------*/
+.tplnk{ color: #009ee0;
+        font-size: 20px; 
+        font-weight: normal;
+        font-family: 'LeagueGothicRegular', Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        text-decoration: underline;
+        -webkit-transition: all 622ms ease;
+           -moz-transition: all 622ms ease ;
+            -ms-transition: all 622ms ease ; 
+                transition:  all 622ms ease;  }
+.tplnk:hover { color: #4f4f4f; } 
+
+/*  ---------------------------------------------------------------------------- *\
+          MODULAR COMPONENTS - LAYOUT, COLORS, ALIGNMENT, CSS3 HELPERs
+            - These are meant to replace existing ID 
+              selectors with smaller, reusable classes.
+            - Makes it easier to build and modify styles
+\* ------------------------------------------------------------------------------ */
+
+/*--- Layout Helpers - Styles  ---------------*/
+.box {  width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        max-width: 960px;
+        *zoom: 1;           }
+        .box.default {  background: #fff;
+                -webkit-box-shadow:0 3px 5px #CCCCCC;
+                   -moz-box-shadow:0 3px 5px #CCCCCC;
+                        box-shadow:0 3px 5px #CCCCCC;
+                        margin-top: 20px !important;
+                        padding: 10px 25px; }
+        .box.extra-padding { padding: 20px 47px 20px 47px !important;}
+.box:before, .box:after { content: " "; display: table; } .box:after { clear: both; } 
+.column, .columns {position: relative; padding-left: 0; padding-right: 0; float: none; }
+.three, .four, .six, .half, .eleven, .nine, .ten, .seven, .five, .eight { position: relative; width: 100%; display: block; }
+.box.collapse > .column, .box.collapse > .columns { position: relative; padding-left: 0; padding-right: 0; float: left; }
+.box.collapse .box { margin-left: 0; margin-right: 0; }
+.box .box {  width: auto;  margin-left: -0.9375em;  margin-right: -0.9375em;  margin-top: 0;  margin-bottom: 0;  max-width: none;  *zoom: 1; }
+.box .box:before, .box .box:after { content: " "; display: table; }
+.box .box:after { clear: both; }
+.box .box.collapse { width: auto; margin: 0; max-width: none; *zoom: 1; }
+.box .box.collapse:before, .box .box.collapse:after { content: " "; display: table; }
+.box .box.collapse:after { clear: both; }
+
+@media screen and (min-width: 720px) { 
+  .column, .columns {position: relative; padding-left: 0.9375em; padding-right: 0.9375em; float: left; }
+  .two      { position: relative; width: 16.6666667%;}
+  .three    { position: relative; width: 25%; }
+  .four     { position: relative; width: 33.33333%; }
+  .six      { position: relative; width: 50%; }
+  .five     { position: relative; width: 41.666666667%; }
+  .half     { position: relative; width: 50%; }
+  .seven { position: relative; width: 58.33333%; }
+  .eight  { position: relative; width: 66.66667%; }  
+  .nine { position: relative; width: 75%; }  
+  .ten{ position: relative; width: 83.33333%; }
+  .eleven { position: relative; width: 91.66667%; }
+}
+
+/* Colors Helpers ------------------------*/
+.bg-white { background: #fff; }
+.bg-gold  { background: #ecb216; }
+.bg-blue  { background: #0099e0; }
+.gold        { color: #ecb216; }
+.bright-blue { color: #0099e0; }
+.muted       { color: #808080; }
+.gray        { color: #333333; }
+.dark-bg {  background-color: rgba(0, 0, 0, 0.95); }
+.black       { color: #000; }
+.green       { color: #00b601; } 
+.red         { color: #f04122; }
+.league-gothic { font-family: 'LeagueGothicRegular';}
+.caps {text-transform: uppercase;}
+.bold {font-weight: bold;}
+.underline { text-decoration: underline !important;} 
+
+/* Alignment Helpers ----------------------*/
+.text-justify { text-align: justify; }
+.text-right   { text-align: right; }
+.text-center { text-align: center; }
+.place-right { float: right; }
+.place-left { float: left; }
+.center-block { display: block; float: none; margin-left: auto; margin-right: auto; }
+
+/* CSS3 Helpers ----------------------*/
+.bxshadow { -webkit-box-shadow:0 3px 5px #CCCCCC;
+               -moz-box-shadow:0 3px 5px #CCCCCC;
+                    box-shadow:0 3px 5px #CCCCCC; }
+.rounded  { border-radius: 3px; }
+
+/* Margin Helpers ----------------------*/
+.space-below { margin-bottom: 20px; }
+.space-above { margin-top: 20px; }
+.vertical-space { margin-top: 20px; margin-bottom: 20px; }
+.horizontal-space { margin-left: 20px; margin-right: 20px; }
+.space-left  { margin-left: 10px; }
+.space-right { margin-right: 10px; }
+
+/* Padding Helpers ----------------------*/
+.pad-below { padding-bottom: 20px; }
+.pad-above { padding-top: 20px; }
+.vertical-pad { padding-top: 20px; padding-bottom: 20px; }
+.horizontal-pad { padding-left: 20px; padding-right: 20px; }
+.padding { padding: 20px; }
+.pad-left  { padding-left: 10px; }
+.pad-right { padding-right: 10px; }
+.large-padding {padding:20px 40px;}
+.inner-pad > div[class="four columns"] {padding-top: 20px !important;}
+.no-overflow { overflow: hidden; }    
+.spacer{ margin-bottom:20px}   
+
+.mplink {
+    color: #707070;
+    display: block;
+    font-size: 14px;
+    letter-spacing: -0.03em;
+    line-height: 130%;
+    padding:10px;
+    text-decoration: none !important; 
+  -webkit-transition: all 700ms ease;
+  -moz-transition: all 700ms ease;
+  -ms-transition: all 700ms ease;
+  -o-transition: all 700ms ease;
+  transition: all 700ms ease;
+} 
+.mplink:hover {
+    background-color: #E5E8E8;
+    color:#000;
+}
+
+.subheading { 
+  margin-top: -0.75em;
+}

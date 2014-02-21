@@ -1,0 +1,325 @@
+@import 'variables';
+
+@include scut-font-face("gotham_boldregular", "fonts/gotham-bold-webfont");
+
+$include-html-classes: true; 
+
+// We use these to control header font styles
+// $header-font-family: join("Open Sans", $body-font-family) !default;
+$header-font-family: $league-gothic, $oswald, "Helvetica";
+$header-font-weight: normal !default;
+$header-font-style: normal !default;
+$header-font-color: $blueBright !default;
+$header-line-height: 1.4 !default;
+$header-top-margin: 0.2rem !default;
+$header-bottom-margin: 0.5rem !default;
+$header-text-rendering: optimizeLegibility !default;
+ 
+$include-html-type-classes: $include-html-classes !default;
+
+// We use these to control header font sizes
+$h1-font-size: rem-calc(60px) !default;
+$h2-font-size: rem-calc(48px) !default;
+$h3-font-size: rem-calc(37px) !default;
+$h4-font-size: rem-calc(23px) !default;
+$h5-font-size: rem-calc(18px) !default;
+$h6-font-size: 1rem !default;
+
+// These control how subheaders are styled.
+$subheader-line-height: 1.4 !default;
+$subheader-font-color: lighten($header-font-color, 30%) !default;
+$subheader-font-weight: 300 !default;
+$subheader-top-margin: 0.2rem !default;
+$subheader-bottom-margin: 0.5rem !default;
+
+// A general <small> styling
+$small-font-size: 60% !default;
+$small-font-color: lighten($header-font-color, 30%) !default;
+
+// We use these to style paragraphs
+$paragraph-font-family: $body-font-family !default;
+$paragraph-font-weight: normal !default;
+$paragraph-font-size: scut-rem(14) !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-bottom: scut-rem(20) !default;
+$paragraph-aside-font-size: scut-rem(14) !default;
+$paragraph-aside-line-height: 1.35 !default;
+$paragraph-aside-font-style: italic !default;
+$paragraph-text-rendering: optimizeLegibility !default; 
+
+// We use these to style anchors
+$anchor-text-decoration: none !default;
+$anchor-font-color: #0099e0 !default;
+$anchor-font-color-hover: darken(#0099e0, 5%) !default;
+
+// We use these to style the <hr> element
+$hr-border-width: 1px !default;
+$hr-border-style: solid !default;
+$hr-border-color: #dddddd !default;
+$hr-margin: scut-rem(20) !default;
+
+// We use these to style lists
+$list-style-position: outside !default;
+$list-side-margin: 1.1rem !default;
+$list-ordered-side-margin: 1.4rem !default;
+$list-side-margin-no-bullet: 0 !default;
+$list-nested-margin: scut-rem(20) !default;
+$definition-list-header-weight: bold !default;
+$definition-list-header-margin-bottom: 0.3rem !default;
+$definition-list-margin-bottom: scut-rem(12) !default;
+
+// We use these to style blockquotes
+$blockquote-font-color: lighten(#121212, 30%) !default;
+$blockquote-padding: scut-rem(9 20 0 19) !default;
+$blockquote-border: 1px solid #dddddd !default;
+$blockquote-cite-font-size: scut-rem(13) !default;
+$blockquote-cite-font-color: lighten(#121212, 20%) !default;
+$blockquote-cite-link-color: $blockquote-cite-font-color !default;  
+
+$button-font-family: 'gotham_boldregular', Arial, Helvetica, sans-serif;
+//
+// Typography Placeholders
+//
+
+// These will throw a deprecation warning if used within a media query.
+%lead {
+    font-size: $paragraph-font-size + scut-rem(3.5);
+    line-height: 1.6;
+}
+
+%subheader {
+    line-height: $subheader-line-height;
+    color: $subheader-font-color;
+    font-weight: $subheader-font-weight;
+    margin-top: $subheader-top-margin;
+    margin-bottom: $subheader-bottom-margin;
+}
+
+/* Typography resets */
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+p,
+blockquote,
+th,
+td {
+    @include zero;
+    direction: ltr;
+}
+
+/* Default Link Styles */
+a {
+    color: $anchor-font-color;
+    text-decoration: $anchor-text-decoration;
+    line-height: inherit;
+    &:hover,
+    &:focus {
+        color: $anchor-font-color-hover;
+    }
+    img {
+        border: none;
+    }
+}
+
+/* Default paragraph styles */
+p {
+    font-family: $paragraph-font-family;
+    font-weight: $paragraph-font-weight;
+    font-size: $paragraph-font-size;
+    line-height: $paragraph-line-height;
+    margin-bottom: $paragraph-margin-bottom;
+    text-rendering: $paragraph-text-rendering;
+    &.lead {
+        @extend %lead;
+    }
+    & aside {
+        font-size: $paragraph-aside-font-size;
+        line-height: $paragraph-aside-line-height;
+        font-style: $paragraph-aside-font-style;
+    }
+}
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    font-style: $header-font-style;
+    color: auto;
+    text-rendering: $header-text-rendering;
+    margin-top: $header-top-margin;
+    margin-bottom: $header-bottom-margin;
+    line-height: $header-line-height;
+    letter-spacing: -1px;
+    small {
+        font-size: $small-font-size;
+        color: $small-font-color;
+        line-height: 0;
+    }
+}
+
+h1 { font-size: $h1-font-size - rem-calc(10); }
+h2 { font-size: $h2-font-size - rem-calc(10); }
+h3 { font-size: $h3-font-size - rem-calc(5); }
+h4 { font-size: $h4-font-size - rem-calc(5); }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+.subheader {
+    @extend %subheader;
+}
+
+hr {
+    border: $hr-border-style $hr-border-color;
+    border-width: $hr-border-width 0 0;
+    clear: both;
+    margin: $hr-margin 0 $hr-margin - scut-rem(1);
+    height: 0;
+}
+
+/* Helpful Typography Defaults */
+em,
+i {
+    font-style: italic;
+    line-height: inherit;
+}
+
+strong,
+b {
+    font-weight: bold;
+    line-height: inherit;
+}
+
+small {
+    font-size: $small-font-size;
+    line-height: inherit;
+}
+
+/* Lists */
+ul,
+ol,
+dl {
+    font-size: $paragraph-font-size;
+    line-height: $paragraph-line-height;
+    margin-bottom: $paragraph-margin-bottom;
+    list-style-position: $list-style-position;
+    font-family: $paragraph-font-family;
+}
+
+ul {
+    margin-left: $list-side-margin;
+    &.no-bullet {
+        margin-#{$default-float}: $list-side-margin-no-bullet;
+        li {
+            ul,
+            ol {
+                margin-left: $list-nested-margin;
+                margin-bottom: 0;
+                list-style: none;
+            }
+        }
+    }
+}
+
+/* Unordered Lists */
+ul {
+    li {
+        ul,
+        ol {
+      		margin-left: $list-nested-margin;
+            margin-bottom: 0;
+            font-size: 1rem;
+            /* Override nested font-size change */
+        }
+    }
+    &.square,
+    &.circle,
+    &.disc {
+        li ul {
+            list-style: inherit;
+        }
+    }
+    &.square {
+        list-style-type: square;
+        margin-left: $list-side-margin;
+    }
+    &.circle {
+        list-style-type: circle;
+        margin-left: $list-side-margin;
+    }
+    &.disc {
+        list-style-type: disc;
+        margin-left: $list-side-margin;
+    }
+    &.no-bullet {
+        list-style: none;
+    }
+}
+
+/* Ordered Lists */
+ol {
+    margin-#{$default-float}: $list-ordered-side-margin;
+    li {
+        ul,
+        ol {
+            margin-#{$default-float}: $list-nested-margin;
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Definition Lists */
+dl {
+    dt {
+        margin-bottom: $definition-list-header-margin-bottom;
+        font-weight: $definition-list-header-weight;
+    }
+    dd {
+        margin-bottom: $definition-list-margin-bottom;
+    }
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 0 0 $paragraph-margin-bottom;
+    padding: $blockquote-padding;
+    border-#{$default-float}: $blockquote-border;
+    cite {
+        display: block;
+        font-size: $blockquote-cite-font-size;
+        color: $blockquote-cite-font-color;
+        &:before {
+            content: "\2014 \0020";
+        }
+        a,
+        a:visited {
+            color: $blockquote-cite-link-color;
+        }
+    }
+}
+
+blockquote,
+blockquote p {
+    line-height: $paragraph-line-height;
+    color: $blockquote-font-color;
+}
+
+@media #{$medium-up} {
+    h1,h2,h3,h4,h5,h6 { line-height: $header-line-height; }
+    h1 { font-size: $h1-font-size; }
+    h2 { font-size: $h2-font-size; }
+    h3 { font-size: $h3-font-size; }
+    h4 { font-size: $h4-font-size; }
+}
+ 

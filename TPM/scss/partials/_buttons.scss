@@ -1,0 +1,50 @@
+.button,
+#submit_btn,
+#register {
+  background: rgba(35,137,206,0.95);
+  color: rgba(255,255,255,1);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  font: {
+    style: normal;
+    weight: bold;
+    family: $button-font-family;
+    size: 16px;
+  }
+  margin: 10px auto;
+  overflow: hidden;
+  padding: 15px 20px;
+  text-align: center; 
+  text-decoration: none;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+
+  @include transition(all 200ms cubic-bezier(0.42, 0, 0,58, 1) 10ms);
+
+  &:hover {
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) inset;
+    box-shadow: -1px 0px 1px 0 rgba(0,0,0,0.3) inset;  
+    background: rgba(10,132,214,1);
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;    
+  }
+}
+
+/* Register Buttons   -----------------------------------------------*/
+#register {
+    // background-color: #ecbe13;
+    // color: #FFF;  
+    // font-weight: normal;
+    // line-height: normal; 
+    // @include inline-block;
+    // @include scut-margin(0 0 1.25rem n);
+    // @include scut-padding(0.725em 2rem); 
+    // font-size: rem-calc(14px);
+    // font-family: $button-font-family; 
+    // font-weight: 600;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    // @include transition(background-color 400ms ease-out);
+      // &:hover { background-color: darken(#ecb215, 10%); }//#009ee0
+}

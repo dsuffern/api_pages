@@ -1,0 +1,117 @@
+/*  -----------------------
+    Webform-specific styles
+    -----------------------   */
+
+//
+//  Function to Convert PX widths to percentage
+//
+@function cp($target, $container) {
+    @return percentage($target, $container) * 100;
+}
+
+//
+//  Form Variables
+//
+$form-min-width: 250px;
+$form-max-width: 280px;
+$form-green-bg: #71bf44;
+$form-blue-bg: #6699cc;
+$form-color: white;
+
+#colform {
+    // float: right;
+    // width: percentage(260px / 280pc);
+    margin: 5px 10px 0px 20px;
+    float: right;
+}
+
+.error,
+#contact_finish {
+    display: none;
+}
+
+// --------------------------------------------
+//     SIGNUP FORMS
+// --------------------------------------------
+.signup {
+    color: $form-color;
+    margin: 0 auto 0 auto;
+    overflow: hidden;
+    padding: 10px;
+    width: $form-max-width;
+    background: #6699CC;
+
+    // Background Options
+    &.green {
+        background-color: $form-green-bg;
+    }
+    &.blue {
+        background-color: $form-blue-bg;
+    }
+
+    // Title
+    .signup-title {
+        font-family: $league-gothic;
+        margin: 0 auto 0 auto;
+        text-align: center;
+        width: percentage($form-min-width / $form-max-width);
+        h4 {
+            font: normal 36px / 110% $league-gothic, Arial, Helvetica, sans-serif;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+    #contact_form {
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+    .success-message {
+        position: relative;
+        padding: 10px;
+        height: 200px;
+        background-color: #0063A8;
+        color: #fefefe;
+        text-align: center;
+        p {
+            font-family: 'AlegreyaRegular' !important;
+            min-width: 200px;
+            max-width: 240px;
+            @include scut-absolute(0 0 0 0);
+            @include scut-margin(auto);
+            @include scut-padding(10px);
+            @include size(60% 60%);
+        }
+    }
+    h5,
+    h6 {
+        margin: 2px;
+        color: white;
+    }
+    button,
+    input,
+    label {
+        width: $form-min-width;
+        display: block;
+        margin: 5px auto;
+    }
+    button,
+    #submit_btn {
+        display: block; 
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    label {
+        color: white !important;
+        font: 400 1em / 1.75 $source-sans;
+    }
+    form label.error {
+        color: red !important;
+    }
+    input {
+        padding: 3px 5px;
+        font-size: 14px;
+        line-height: 1.34;
+    }
+}

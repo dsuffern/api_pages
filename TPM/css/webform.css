@@ -1,0 +1,92 @@
+/* Webform-specific styles*/
+
+.success-message,
+button.button,
+input,
+label,
+.signup-title {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+#contact_form {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 100%;
+}
+label {
+    color: white !important;
+    font: 400 1em/1.75"HelveticaNeue", "Helvetica", "Arial";
+}
+form label.error {
+    color: red !important
+}
+.signup {
+    overflow: hidden;
+    padding: 10px;
+    width: 280px;
+    background: #71BF44;
+}
+.signup-title {
+    display: block;
+    color: #fff;
+    text-align: center;
+}
+.signup-title h4 {
+    margin: 0;
+    text-transform: uppercase;
+    font: normal 36px/110% LeagueGothicRegular, Arial, Helvetica, sans-serif;
+}
+.signup-title h5 {
+    text-align: center
+}
+button.button {
+    height: 40px;
+    border: 0px solid transparent;
+    background: #ecbe13 !important;
+    color: #fff!important;
+    text-transform: uppercase !important;
+    font-size: 1.7em !important;
+    font-family: 'LeagueGothicRegular' !important;
+    cursor: pointer;
+}
+input {
+    padding: 3px 5px;
+    font-size: 14px;
+    line-height: 1.34;
+}
+h5,
+h6 {
+    margin: 2px;
+    color: white;
+}
+.success-message {
+    position: relative;
+    padding: 10px;
+    height: 200px;
+    background-color: #0063A8;
+    color: #fefefe;
+    text-align: center;
+}
+.success-message p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    padding: 10px 10px 10px 10px !important;
+    min-width: 200px;
+    max-width: 240px;
+    width: 60%;
+    height: 60%;
+    color: #fff !important;
+    font-family: 'AlegreyaRegular' !important;
+}
+.mt1 {
+    margin-top: 1em
+}
+.p1 {
+    padding: 1em
+}

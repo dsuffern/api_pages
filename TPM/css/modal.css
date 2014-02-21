@@ -1,0 +1,41 @@
+        #mask{
+        position:absolute; /* important */
+        top:0px; /* start from top */
+        left:0px; /* start from left */
+        height:100%; /* cover the whole page */
+        width:100%;  /* cover the whole page */
+        display:none; /* don't show it '*/
+
+        /* styling bellow */
+        background-color: #CCC;
+		  
+    }
+
+    .modal_window{
+        position:absolute; /* important so we can position it on center later */
+        display:none; /* don't show it */
+
+        /* styling bellow */
+        color:white;
+    }
+
+    /* style a specific modal window  */
+    #modal_window1{
+padding: 5px;
+border: 1px solid gray;
+background: white;
+color: black;
+width: 900px;
+        
+    }
+	 #modal_window2{
+padding: 5px;
+border: 1px solid gray;
+background: white;
+color: black;
+width: 900px;
+        
+    }
+#modal_widow1.h2{color:#009ee0;}
+#modal_widow2.h2{color:#009ee0;}
+.close_modal{float:right;padding:5px 5px;font-size:30px;cursor:pointer}

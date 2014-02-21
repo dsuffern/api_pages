@@ -1,0 +1,23 @@
+user agent: * 
+disallow:/html/
+disallow: /demos/
+disallow: /tmpte/
+disallow: /docs/
+disallow: /older_version_TPM/
+disallow: /OLD_SITE/
+disallow: /opt-out.html
+disallow: /dashboards/
+disallow: /older_version_TPM/
+disallow: /jon_docs/
+disallow: /images/
+disallow: /GS2_Testimonials/
+disallow: /GS3_Testimonials/
+disallow: /Templates/
+disallow: /test/
+disallow: /Test-Taking Strategies.mp4
+disallow: /Test-Taking Strategies.ogv
+disallow: /success-stories.html
+disallow: /general-surgery-2.html
+disallow: /terms-all-the-way.html
+disallow: /safe-answers.html
+disallow: /general-surgery-recertification-online-practice-exams-webinars.html
